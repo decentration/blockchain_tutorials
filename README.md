@@ -10,10 +10,27 @@ This repository contains all student materials for the Cambridge 2022 Polkadot B
 
 ## Table of contents
 
+- [Shared Notes](#shared-notes)
 - [Lesson slides with Reveal.js](#lesson-slides-with-revealjs)
 - [Exercises, workshops and activities](#exercises-workshops-and-activities)
   - [Rust Jupyter notebooks with EvCxR](#rust-jupyter-notebooks-with-evcxr)
   - [Stand-alone Rust workshops and activities](#stand-alone-rust-workshops-and-activities)
+
+## Shared Notes
+
+Th class has shared, collaborative, and curated lesson notes accessible here:
+
+#### [PBA Cambridge 2022 - Shared Notes](https://docs.google.com/document/d/1l2Xuu7HhYhEVBT8kn_UlXN65leo6CTKEvSO58Df9dNQ/)
+
+Please use _commenting mode_ to add your notes per class (this can be anonymous, use a private tab 😉). Feel free to add comments on anything here as well in a comment element (highlight text, `ctrl+alt+m`) too.
+
+Some ideas of things to include in these notes:
+- Useful links, related to the lesson
+- References
+- Ideas that come to mind
+- Questions you had
+- Feedback about the lesson
+- Suggestions to improve
 
 ## Lesson slides with Reveal.js
 
