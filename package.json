@@ -8,7 +8,7 @@
     "serve": "^13.0.4"
   },
   "scripts": {
-    "start": "serve build/",
+    "start": "serve slides/",
     "help": "serve --help",
     "s": "yarn start"
   },
