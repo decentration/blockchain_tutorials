@@ -25,6 +25,7 @@ Th class has shared, collaborative, and curated lesson notes accessible here:
 Please use _commenting mode_ to add your notes per class (this can be anonymous, use a private tab 😉). Feel free to add comments on anything here as well in a comment element (highlight text, `ctrl+alt+m`) too.
 
 Some ideas of things to include in these notes:
+
 - Useful links, related to the lesson
 - References
 - Ideas that come to mind
@@ -122,6 +123,8 @@ Here is how we define these:
   These are instructor lead, and hand-held to get everyone to the same result.
 - **Activities**: these are self-directed assignments for individuals and/or small groups that do not "hand-hold" like workshops.
   Student's completed work is expected to have some variety and a canonical solutions should be produced to review when students submit to compare to.
+
+** The will be made avsalibe in the [./materials/](./materials/)] directory in this repository**
 
 ### Rust Jupyter notebooks with EvCxR
 
