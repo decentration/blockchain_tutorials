@@ -5,7 +5,7 @@
   "repository": "git@github.com:Polkadot-Blockchain-Academy/cambridge-2022.git",
   "author": "Polkadot Blockchain Academy <academy@parity.io>",
   "dependencies": {
-    "serve": "^13.0.4"
+    "serve": "^14.0.0"
   },
   "scripts": {
     "start": "serve slides/",
