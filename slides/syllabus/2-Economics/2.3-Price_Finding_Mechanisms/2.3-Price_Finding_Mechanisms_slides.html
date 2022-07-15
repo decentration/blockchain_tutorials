@@ -229,7 +229,6 @@ The important thing is that revenue function is _concave_.
 _An auction is a competitive game for buyers, where the seller makes the rules._
 
 <img style="width: 300px;" src="/assets/img/2-Economics/2.3-auctioneer.gif" center/>
-
 </script></section><section  data-markdown><script type="text/template">
 ## Auctions
 
@@ -666,15 +665,17 @@ Recall the rules:
 </script></section><section  data-markdown><script type="text/template">
 <!-- .slide: data-background-color="#8D3AED" -->
 
-# Discussion: The Candle Auction on Polkadot
+# Discussion
+
+## Polkadot Candle Auctions
 </script></section><section  data-markdown><script type="text/template">
-## The Candle Auction on Polkadot
+## Sensible Auctions
 
 **Independence of valuations.** In our analysis, it was important to assume that the bidders' valuations are independent from one another.
 
 _Can you think of examples where this assumption is/isn't sensible?_
 </script></section><section  data-markdown><script type="text/template">
-## The Candle Auction on Polkadot
+## Sensible Auctions
 
 _Answers:_
 
@@ -682,15 +683,15 @@ _Answers:_
 
 **Not sensible:** auction to get the right to drill an oil well. Bidders will have similar estimates of the amount of oil in it, hence similar valuations.
 </script></section><section  data-markdown><script type="text/template">
-## The Candle Auction on Polkadot
+## Common Value Auctions
 
-**Common value auctions.** A special scenario where all bidders have the same valuation for the auctioned good, but this value is unknown. Instead, each bidder has a private estimate of it.
+A special scenario where all bidders have the same valuation for the auctioned good, but this value is unknown. Instead, each bidder has a private estimate of it.
 
 In these cases, it is typically observed that sealed-bid auctions give higher revenue than dynamic auctions.
 
 _Why do you think this is the case?_
 </script></section><section  data-markdown><script type="text/template">
-## The Candle Auction on Polkadot
+## Common Value Auctions
 
 _Answer_: In a dynamic auction, a bidder can use the bids of others as additional signals of the common value. If the bids so far seems too high to me, my initial signal must have been an under-estimation, and vice-versa, so I can adjust my personal estimate on the fly. As a result, the bidder's estimates converge.
 
@@ -698,15 +699,16 @@ In a static auction, there is no convergence of estimates, so it is more likely 
 
 As a result, in a static auction there is a higher chance that the winner ends up paying more than the true valuation of the good. This is known as the _winner's curse_.
 </script></section><section  data-markdown><script type="text/template">
-## The Candle Auction on Polkadot
+## Equivalence of Revenues
 
-**Another violation of the equivalence of revenues.** In all auctions (not only common value auctions), it is observed in practice that first-price auctions lead to higher revenue than second-price auctions.
+In all auctions (not only common value auctions), it is observed in practice that first-price auctions lead to higher revenue than second-price auctions.
 
+This _violates_ the equivalence of revenues.<br>
 This means that some assumption in our analysis fail consistently.
 
 _What do you think it is?_
 </script></section><section  data-markdown><script type="text/template">
-## The Candle Auction on Polkadot
+## Equivalence of Revenues
 
 _Answer:_ It is probably because people are _risk averse_: they prefer low uncertainty over high uncertainty, even if the latter scenario leads to higher profit in expectation. _Would you rather win a million dollars with a 50% chance, or 300 thousand with a 90% chance?_
 
@@ -714,15 +716,15 @@ In the analysis of the Nash equilibrium for first-price auctions, we claimed tha
 
 In contrast, in our analysis for second-price auctions, the bidders' aversion to risk is not a factor.
 </script></section><section  data-markdown><script type="text/template">
-## The Candle Auction on Polkadot
+## Front Running
 
-**Front running.** Many computer systems, including blockchain networks, have _front runners_. These are nodes with a special setup that allows them to see a transaction before anyone else, and even respond by creating a new transaction that gets registered on the ledger before the original transaction. Front runners are a common nuisance to finance applications.
+Many computer systems, including blockchain networks, have _front runners_. These are nodes with a special setup that allows them to see a transaction before anyone else, and even respond by creating a new transaction that gets registered on the ledger before the original transaction. Front runners are a common nuisance to finance applications.
 
 Suppose you want to run an auction over a system that is known to have front runners. A front runner can immediately detect a transaction containing a bid, and may even be able to read the precise bid value.
 
 _Which of the four auctions would you use / avoid? Why?_
 </script></section><section  data-markdown><script type="text/template">
-## The Candle Auction on Polkadot
+## Front Running
 
 <div style="font-size: smaller;">
 
@@ -742,8 +744,7 @@ Hence, it's best to run an English auction. However, Fred may still be able to s
 
 - **Sniping**: in a timed online auction, sniping is placing a bid as late as possible, seconds before the bidding period is over, so that other bidders don't have time to react and overbid. The practice leads to low revenue. This problem is accentuated when the sniper is a front runner (microseconds).
 
-eBay uses timed auctions and is famous for having snipers.
-
+eBay uses timed auctions and is famous for having snipers.<br>
 How to protect an auction from snipers and grievers?
 </script></section><section  data-markdown><script type="text/template">
 ## Candle Auction
@@ -781,9 +782,11 @@ Dynamic first-price auction with _random ending time._
 </script></section><section  data-markdown><script type="text/template">
 ## Auction Game
 
-We will now play a game with real money (my money)!
+<div style="text-align: left;">
 
 ### Rules:
+
+</div>
 
 - Prize is a 10 pound note
 - Public bidding (dynamic).
@@ -792,7 +795,8 @@ We will now play a game with real money (my money)!
 - Highest bidder gets the prize.
 - **Both** highest and second highest bidders pay their respective bids.
 
-<aside class="notes"><ul>
+<aside class="notes"><p>We will now play a game with real money (my money)!</p>
+<ul>
 <li>So, you could get 10 pounds for 50 pence if no one else bids.</li>
 <li>But if you end up second you have a loss.</li>
 <li>Ask top two bidders to keep their arms raised.</li>
