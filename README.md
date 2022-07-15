@@ -10,11 +10,16 @@ This repository contains all student materials for the Cambridge 2022 Polkadot B
 
 ## Table of contents
 
+- [Student Informational Materials](#student-informational-materials)
 - [Shared Notes](#shared-notes)
 - [Lesson slides with Reveal.js](#lesson-slides-with-revealjs)
 - [Exercises, workshops and activities](#exercises-workshops-and-activities)
   - [Rust Jupyter notebooks with EvCxR](#rust-jupyter-notebooks-with-evcxr)
   - [Stand-alone Rust workshops and activities](#stand-alone-rust-workshops-and-activities)
+
+## Student Informational Materials
+
+An assortment of _key student information documents_ for the Academy exist in th [./materials/0-Student-Life/](./materials/0-Student-Life/) directory.
 
 ## Shared Notes
 
