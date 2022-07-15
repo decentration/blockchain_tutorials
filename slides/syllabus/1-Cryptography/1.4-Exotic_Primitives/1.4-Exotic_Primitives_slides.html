@@ -50,9 +50,9 @@
 - Erasure coding
 - ZK Proofs
 </script></section><section  data-markdown><script type="text/template">
-## Verfiable Random Functions (VRFs)
+## Verifiable Random Functions (VRFs)
 </script></section><section  data-markdown><script type="text/template">
-### Verfiable Random Functions (VRFs)
+### Verifiable Random Functions (VRFs)
 
 <br>
 
@@ -95,8 +95,8 @@
 
 <widget-text style="padding: 0 200px 50px 200px" center >
 
-- Choose input after key, then the keyholder cannot influence the output
-- The output then is effectively a random number known only to the keyholder
+- Choose input after key, then the key holder cannot influence the output
+- The output then is effectively a random number known only to the key holder
 - But they can later reveal it, by publishing the VRF proof (signature)
 
 <aside class="notes"><p>The signature proves that this is the output associated to their input and public key.</p>
@@ -152,7 +152,7 @@ But this needs a DKG, and it&#39;s unclear if a decentralized protocol can do th
 - If a few bits of the coded data are randomly flipped, we can still recover the original data
 - Typically $n$ is not much bigger than $k$
 </script></section><section  data-markdown><script type="text/template">
-### Use in decentralised systems
+### Use in decentralized systems
 
 <br>
 
@@ -314,7 +314,7 @@ To do everything well, ZK-SNARKs are needed in e.g. ZCash and its many derivativ
 <widget-text style="padding: 0 200px 50px 200px" center >
 
 - Slow prover time for general computation
-- To be fast, need to hand optimise
+- To be fast, need to hand optimize
 - Very weird computation model: Non-deterministic arithmetic circuits
 </script></section><section  data-markdown><script type="text/template">
 ### Downsides conclusion?
@@ -382,7 +382,7 @@ To do everything well, ZK-SNARKs are needed in e.g. ZCash and its many derivativ
       // options from URL query string
       const queryOptions = Reveal().getQueryHash() || {};
 
-      const options = extend(defaultOptions, {"width":"100%","height":"100%","margin":0,"minScale":0.2,"maxScale":2,"transition":"none","controls":true,"progress":true,"center":true,"slideNumber":true,"backgroundTransition":"fade"}, queryOptions);
+      const options = extend(defaultOptions, {"width":1600,"height":900,"margin":0,"minScale":0.2,"maxScale":2,"transition":"none","controls":true,"progress":true,"center":true,"slideNumber":true,"backgroundTransition":"fade"}, queryOptions);
       options.baseUrl = '';
       Reveal.initialize(options);
     </script>
