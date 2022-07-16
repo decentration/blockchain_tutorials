@@ -18,7 +18,7 @@ fn main(){
     let mut keypair = Keypair::generate_with(&mut csprng);
 
     let mut draw = draws(&keypair, VRF_seed);
-    
+
     let (card, signature)= draw[0];
     println!("This is your card: {:?}", card);
     println!("***************************");
@@ -26,7 +26,7 @@ fn main(){
     println!("***************************");
     println!("This is your signature: {:?}", signature);
     println!("***************************");
-    
+
     // reveal cards we must call receive
 
     let public_key = keypair.public;
@@ -87,7 +87,7 @@ fn draws(
 /// We depend upon application code to enforce the public key and seed
 /// being chosen correctly.
 ///
-/// We encode the draw number into the vrf signature since an honest 
+/// We encode the draw number into the vrf signature since an honest
 /// application has no use for this, outside the verification check in
 /// `draw_transcript`.
 fn recieve(
