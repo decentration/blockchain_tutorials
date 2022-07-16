@@ -129,7 +129,7 @@ Here is how we define these:
 - **Activities**: these are self-directed assignments for individuals and/or small groups that do not "hand-hold" like workshops.
   Student's completed work is expected to have some variety and a canonical solutions should be produced to review when students submit to compare to.
 
-** The will be made avsalibe in the [./materials/](./materials/)] directory in this repository**
+**Related materals will be made available in the [./materials/](./materials/) directory in this repository**
 
 ### Rust Jupyter notebooks with EvCxR
 
