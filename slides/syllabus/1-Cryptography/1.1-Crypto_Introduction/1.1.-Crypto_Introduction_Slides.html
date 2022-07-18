@@ -22,48 +22,34 @@
       <a href="/">
         <img class="watermark-logo" src="./../../../assets/img/0-Shared/logo/PBA-logo-white.svg" alt="PBA Logo">
       </a>
-      <a href="https://polkadot.network">
-        <img class="watermark-icon" src="./../../../assets/img/0-Shared/logo/DOT-pink.svg" alt="DOT">
-      </a>
+      <img class="watermark-icon" src="./../../../assets/img/0-Shared/logo/DOT-pink.svg" alt="DOT">
     </header>
     <main class="site-reveal reveal">
       <article class="slides">
         <section  data-markdown><script type="text/template">
 
 # Introduction to Cryptography
-
-<widget-text style="padding: 0 200px 50px 200px" center >
-. . . . . . . . . .
-</widget-text>
-
-## Gavin Wood
-
-### _Founder, Parity Technologies_
 </script></section><section  data-markdown><script type="text/template">
 ## Goals for this lesson
 
-<br>
-
-<widget-text center>
+<center>
 
 - Understand the goals of cryptography
 - Understand some network and contextual assumptions
 - Learn what expectations cryptography upholds
 - Learn the primitives
 
-</widget-text>
+</center>
 </script></section><section  data-markdown><script type="text/template">
 ## Operating Context
 
 ### _The internet is a public space._
 
-<widget-text style="padding: 10px 200px 40px 200px;" center>
+<center>
 
 We communicate over public channels.
 
 Adversaries exist who may want to:
-
-</widget-text>
 
 <widget-text center>
 
@@ -72,9 +58,6 @@ Adversaries exist who may want to:
 - Tamper with messages
 
 </widget-text>
-
-</widget-column>
-</widget-columns>
 
 <aside class="notes"><p>Use e-mail as an example of an flawed system.</p>
 <p>Some examples include:</p>
@@ -87,18 +70,12 @@ not just person-to-person messages.</p>
 </aside></script></section><section  data-markdown><script type="text/template">
 ## Operating Context
 
-<widget-text style="padding: 10px 200px 40px 200px;" center>
-
 ### _Resources are constrained._
 
-</widget-text>
-
-<widget-text style="padding: 0 200px 0px 200px;">
+<br>
 
 - **Network, storage, computation, etc.**: We don't want to send, store, or operate on the same data, but we want guarantees about it, e.g. that we agree on a message's contents.
 - **Privacy**: We must assume that all channels can be monitored, and thus closed channels are heavily constrained (i.e. assumed to not exist).
-
-</widget-text>
 </script></section><section  data-markdown><script type="text/template">
 ## Open vs. Closed Channels
 
@@ -106,27 +83,20 @@ _Cryptography based on public systems is more sound anyway._
 
 <br>
 
-<widget-text style="padding: 0 200px 0 200px">
-
 **Kerckhoff's Principle:** Security should not rely on secret _methods_, but rather on secret _information_.
-
-</widget-text>
 
 <aside class="notes"><p>There is no such thing as a &quot;closed channel&quot; :)</p>
 <ul>
 <li>Methods can be reverse engineered. After that, the communication channel is completely insecure. For example, CSS protection for DVDs.</li>
 <li>We always work with public, open protocols.</li>
 </ul>
-</widget-text>
+</center>
 
 <h2 id="cryptographic-guarantees">Cryptographic Guarantees</h2>
-<widget-text style="padding: 0 200px 25px 200px" >
-
 <p>Cryptography provides tools for communicating securely in the open.</p>
 <p>Encryption is one use of cryptography, hashing is another.</p>
 <p>It also provides other powerful guarantees:</p>
-</widget-text>
-<widget-text center>
+<center>
 
 <ul>
 <li>Data accessibility</li>
@@ -134,25 +104,17 @@ _Cryptography based on public systems is more sound anyway._
 <li>Data integrity</li>
 <li>Nonrepudiation (later)</li>
 </ul>
-</widget-text></aside></script></section><section  data-markdown><script type="text/template">
+</center></aside></script></section><section  data-markdown><script type="text/template">
 ## Data Accessibility
 
-<widget-text style="padding: 0 200px 25px 200px">
-
 A party may gain access to information if and only if they know some secret (a key).
-
-</widget-text>
 
 <aside class="notes"><p>The ability to decrypt some data and reveal its underlying information directly implies knowledge of some secret, potentially unknown to the originator of the information. Supplying the original information (aka plain text message) can be used in a &quot;challenge game&quot; mechanism as one means of proving knowledge of the secret without compromising it.</p>
 <p>Mention use of the term &quot;plaintext&quot;.</p>
 </aside></script></section><section  data-markdown><script type="text/template">
 ## Message Authenticity
 
-<widget-text style="padding: 0 200px 25px 200px" >
-
 Like physical signatures, cryptography may be used to give a reasonable expectation of a message's provenance (origin), in order to give the users the credible expectation that the stated origin is authentic.
-
-</widget-text>
 
 <aside class="notes"><ul>
 <li>Digital signatures should be difficult (practically speaking: impossible) to forge.</li>
@@ -161,58 +123,36 @@ Like physical signatures, cryptography may be used to give a reasonable expectat
 </aside></script></section><section  data-markdown><script type="text/template">
 ## Data Integrity
 
-<widget-text style="padding: 0 200px 25px 200px" >
-
 Physical signatures provide weak authenticity guarantees (i.e. they are quite easy to forge), and no integrity guarantees.
-
-</widget-text>
 </script></section><section  data-markdown><script type="text/template">
 ## Data Integrity
 
-<br>
-
-<widget-image src="/assets/img/1-Cryptography/Data Integrity.png"></widget-image>
+<img style="width: 900px;" src="../../../assets/img/1-Cryptography/Data-Integrity.png"/>
 
 <aside class="notes"><p>For example, if you change the year on your university diploma, the dean&#39;s signature is still valid.
 Digital signatures provide a guarantee that the signed information has not been tampered with.</p>
 </aside></script></section><section  data-markdown><script type="text/template">
 ## One-Way Functions
 
-<br>
-
 One-way functions form the basis of both **(cryptographic) hashing** and **asymmetric cryptography**.
 
 <br>
-
-<widget-text style="padding: 0 200px 0 200px" center>
 
 - Functions for which we know fast algorithms to compute
 - But for which we believe to be hard to invert
 - And for which there may be some secret which makes it easy
 
-</widget-text>
-
 <aside class="notes"><p>There are a lot of assumptions about why these functions are hard to invert, but we cannot rigorously prove it. We often express inversion problems in terms of mathematical games or oracles.</p>
 </aside></script></section><section  data-markdown><script type="text/template">
 ## Hash Functions
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px">
 
 **Motivation:** We often want a succinct representation of some data with the expectation that we are referring to the same data. A "fingerprint".
 
 <br>
 
 _Again, just an intro. There are lectures later in this module dedicated to hashes and hash-based data structures._
-
-</widget-text>
 </script></section><section  data-markdown><script type="text/template">
 ## Hash Function Applications
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px">
 
 Hashes can be useful for many applications:
 
@@ -221,14 +161,10 @@ Hashes can be useful for many applications:
 - Digital signatures
 - Key derivation
 - Pseudorandom functions
-
-</widget-text>
 </script></section><section  data-markdown><script type="text/template">
 ## Hash Function Properties
 
 <br>
-
-<widget-text style="padding: 0 200px 0 200px">
 
 1. Accept unbounded size input
 1. Map to a bounded output
@@ -237,35 +173,25 @@ Hashes can be useful for many applications:
 1. Resist pre-image attacks (attacker controls one input)
 1. Resist collisions (attacker controls both inputs)
 
-</widget-text>
-
 <aside class="notes"><p>Based on the first two properties, <em>there must exist</em> infinite collisions. A.k.a. Dirichlet&#39;s Drawer Principle, a.k.a. pigeonhole principle.</p>
 </aside></script></section><section  data-markdown><script type="text/template">
 ## Hash Function
 
 <br>
 
-<widget-image style="padding: 0 100px 0 100px" src="/assets/img/1-Cryptography/Hash Function Properties.png"></widget-image>
+<img style="width: 1100px" src="../../../assets/img/1-Cryptography/Hash-Function-Properties.png"/>
 </script></section><section  data-markdown><script type="text/template">
 ## Input Sensitivity
 
-<br>
-
-<widget-text style="padding: 0 200px 0 200px">
-
 Changes to a hash are not related to the magnitude of change in the input.
 
-</widget-text>
+</center>
 
 <br>
 
-<widget-image src="/assets/img/1-Cryptography/Input sensitivity.png"></widget-image>
+<img style="width: 1100px" src="../../../assets/img/1-Cryptography/Input-Sensitivity.png"/>
 </script></section><section  data-markdown><script type="text/template">
-## Cryptographic vs. Non-Cryptographic
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px">
+## Cryptographic vs. <br> Non-Cryptographic
 
 Cryptographic hash functions provide stronger guarantees on the last three properties.
 
@@ -273,15 +199,11 @@ Cryptographic hash functions provide stronger guarantees on the last three prope
 
 But non-cryptographic hash functions are much faster.
 
-</widget-text>
-
 <aside class="notes"><p>Substrate uses both (more on that later).</p>
 </aside></script></section><section  data-markdown><script type="text/template">
 ## Famous Hash Algorithms
 
 <br>
-
-<widget-text style="padding: 0 200px 0 200px" center>
 
 <widget-text center>
 
@@ -294,54 +216,42 @@ But non-cryptographic hash functions are much faster.
 - Keccak
 - Blake2
 
-</widget-text>
-
 <br>
-
-</widget-text>
 
 TwoX64 is about 20x faster.
 
-</widget-text>
+</center>
 </script></section><section  data-markdown><script type="text/template">
 ### Cryptographic Hashing - Benchmarks
 
-<widget-image src="/assets/img/1-Cryptography/crypto-bench.png"></widget-image>
+<img style="width: 1100px" src="../../../assets/img/1-Cryptography/crypto-bench.png"/>
 
 <aside class="notes"><p>Benchmarks for the XX-hash algorithms.
 Source: <a href="https://www.blake2.net/">https://www.blake2.net/</a></p>
 </aside></script></section><section  data-markdown><script type="text/template">
 ### xxHash - Extremely fast hash algorithm - Benchmarks
 
-<widget-image src="/assets/img/1-Cryptography/Benchmark XXHash.png"></widget-image>
+<img style="width: 1100px" src="../../../assets/img/1-Cryptography/Benchmark-XXHash.png"/>
 
 <aside class="notes"><p>Benchmarks for the XX-hash algorithms.
 Source: <a href="https://github.com/Cyan4973/xxHash#benchmarks">https://github.com/Cyan4973/xxHash#benchmarks</a></p>
 </aside></script></section><section  data-markdown><script type="text/template">
 ## Symmetric Encryption
 
-<br>
-
-<widget-image src="/assets/img/1-Cryptography/Symmetric Cryptography.png"></widget-image>
+<img style="width: 1100px" src="../../../assets/img/1-Cryptography/Symmetric-Cryptography.png"/>
 
 <br>
 
 Examples: ChaCha20, Twofish, Serpent, Blowfish, AES, DES, XOR
 </script></section><section  data-markdown><script type="text/template">
-## Symmetric Encryption Example
+## Symmetric Encryption
 
 ### _Example: XOR Cipher_
 
 <widget-columns>
 <widget-column>
 
-<br>
-
-<widget-text style="padding: 0 0 0 200px">
-
 The encryption and decryption functions are identical: applying a bitwise XOR operation with a key.
-
-</widget-text>
 
 </widget-column>
 <widget-column style="padding-right: 100px">
@@ -356,48 +266,42 @@ Key:   1100  |          1100
 <aside class="notes"><p>A plaintext can be converted to ciphertext, and vice versa, by applying a bitwise XOR operation with a key known to both parties.</p>
 </widget-column>
 </widget-columns></aside></script></section><section  data-markdown><script type="text/template">
-## Symmetric Encryption Warning
+## Symmetric Encryption
 
-<br>
-
-<widget-text style="padding: 0 200px 0 200px">
+### Warning
 
 We typically expect symmetric encryption to preserve little about the original plaintext. We caution however that constructing these protocols remains delicate, even given secure primitives, with two classical examples being unsalted passwords and the [ECB penguin](https://tonybox.net/posts/ecb-penguin/).
-
-</widget-text>
 </script></section><section  data-markdown><script type="text/template">
 <widget-columns>
 <widget-column>
 
-<widget-image src="/assets/img/1-Cryptography/ECG Penguin.png"></widget-image>
+<center>
 
-<widget-text center>
+<img style="width: 300px" src="../../../assets/img/1-Cryptography/ECG-Penguin.png"/>
+
 
 _Original image_
 
-</widget-text>
+</center>
 
 </widget-column>
 <widget-column>
 
-<widget-image src="/assets/img/1-Cryptography/ECG Penguin Encrypted.png"></widget-image>
+<center>
 
-<!-- Image sources: https://github.com/robertdavidgraham/ecb-penguin/blob/master/Tux.png and https://github.com/robertdavidgraham/ecb-penguin/blob/master/Tux.ecb.png -->
+<img style="width: 300px" src="../../../assets/img/1-Cryptography/ECG-Penguin-Encrypted.png"/>
 
-<widget-text center>
 
 _Encrypted image_
 
-</widget-text>
+</center>
 
 </widget-column>
 </widget-columns>
-</script></section><section  data-markdown><script type="text/template">
+
+<aside class="notes"><p>Image sources: <a href="https://github.com/robertdavidgraham/ecb-penguin/blob/master/Tux.png">https://github.com/robertdavidgraham/ecb-penguin/blob/master/Tux.png</a> and <a href="https://github.com/robertdavidgraham/ecb-penguin/blob/master/Tux.ecb.png">https://github.com/robertdavidgraham/ecb-penguin/blob/master/Tux.ecb.png</a></p>
+</aside></script></section><section  data-markdown><script type="text/template">
 ## Asymmetric Cryptography
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px">
 
 - In asymmetric cryptography, we devise a means to transform one value (the "secret") into some corresponding counterpart (the "public" key), preserving certain properties.
 
@@ -408,14 +312,8 @@ _Encrypted image_
 - _Using only the public key_, information can be transformed ("encrypted") such that only those with knowledge of the secret are able to inverse and regain the original information.
 
 - _Using the secret key_, information can be transformed ("signed") such that anyone with knowledge of the information and the counterpart public key is able to affirm the operation.
-
-</widget-text>
 </script></section><section  data-markdown><script type="text/template">
 ## Asymmetric Protocols
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px">
 
 - Asymmetric cryptography includes RSA, Elgamal, Elliptic Curve (slowest to fastest)
 - Elliptic Curve Cryptography (ECC) includes:
@@ -426,8 +324,6 @@ _Encrypted image_
   - BLS
 - ECC requires double the bits to the symmetric AES for the same level of security. E.g. 128 bit security requires a 256 bit ECC key.
 
-</widget-text>
-
 <aside class="notes"><p>Discuss misuse resistance and motivation for support here. Or could be in more runtime focused lesson?</p>
 <ul>
 <li>ECDSA: Lots of footguns, but we support for legacy Ethereum compatibility</li>
@@ -437,53 +333,31 @@ _Encrypted image_
 </aside></script></section><section  data-markdown><script type="text/template">
 ## Practical Considerations
 
-<br>
-
-<widget-text style="padding: 0 200px 0 200px">
-
 **Symmetric cryptography** is much faster, but requires more setup (key establishment) and trust (someone else knows the secret).
 
 <br>
 
 **Asymmetric cryptography** is slow, but typically preserves specific algebraic relationships, which then permit more diverse if fragile protocols.
-
-</widget-text>
 </script></section><section  data-markdown><script type="text/template">
 ## Hybrid Cryptography
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px" center>
 
 Hybrid cryptography mixes symmetric and asymmetric cryptography.
 
 - Symmetric encryption can provide speed, and often confidentiality,
 
 - And asymmetric can dictate relations among the participants.
-
-</widget-text>
 </script></section><section  data-markdown><script type="text/template">
 ## Digital Signatures
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px">
 
 Digital signatures provide message authenticity and integrity guarantees.
 
 <br>
 
 _The next two lectures are dedicated to digital signatures, this is strictly an intro._
-
-</widget-text>
 </script></section><section  data-markdown><script type="text/template">
 ## Digital Signatures
 
-<br>
-
-<widget-text style="padding: 0 200px 0 200px">
-
-**signing function**: a pure function which operates on some _message data_ and some _secret_ to yeild a _signature_.
+**signing function**: a pure function which operates on some _message data_ and some _secret_ to yield a _signature_.
 
 <br>
 
@@ -493,22 +367,12 @@ The signature cannot be used to create other signatures.
 
 <aside class="notes"><p>A <strong>signing function</strong> is a pure function which operates on some <em>message data</em> (which may or may not be small, depending on the function) and some <em>secret</em> (a small piece of information known only to the operator). The result of this function is a small piece of data called a <em>signature</em>.</p>
 <p>It has a special property: it proves (beyond reasonable doubt) that the signer (i.e. operator of the signing function) had knowledge of the secret and utilised this knowledge with the specific <em>message</em> data, yet it does not reveal the secret itself, nor can knowledge of the signature be used to create other signatures (e.g. for alternative message data).</p>
-</widget-text></aside></script></section><section  data-markdown><script type="text/template">
+</aside></script></section><section  data-markdown><script type="text/template">
 ## Digital Signatures
 
-<br>
-
-<widget-text style="padding: 0 200px 0 200px">
-
 In this model, secrets are identified not by their actual data (which we assume only the signer knows) but rather a derivative counterpart (known as the _public key_) which maps 1:1 with the secret (and so can be used to identify it), yet does not compromise it.
-
-</widget-text>
 </script></section><section  data-markdown><script type="text/template">
 ## Digital Signatures on Plaintext
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px">
 
 Digital signatures are not limited to encryption. Some information you even want to share publicly.
 
@@ -516,14 +380,8 @@ Digital signatures are not limited to encryption. Some information you even want
 
 **Example:** Affirmation of a document's author.
 Digital signatures still guarantee that the message is authentic and has not been modified (e.g. to some other document).
-
-</widget-text>
 </script></section><section  data-markdown><script type="text/template">
 ## Nonrepudiation
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px">
 
 Only those with knowledge of some secret information could have produced a valid signature.
 
@@ -531,14 +389,8 @@ Only those with knowledge of some secret information could have produced a valid
 
 The signer cannot claim that the signature was forged, unless they can defend a claim that the secret was compromised prior to signing.
 Symmetric cryptography does not provide this guarantee: someone else knows the secret.
-
-</widget-text>
 </script></section><section  data-markdown><script type="text/template">
 ## Certifications
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px">
 
 Certifications are used to make attestations about public key relationships.
 
@@ -549,20 +401,14 @@ Typically in the form of a _signature_ on:
 - One or more cryptographically strong identifiers (e.g. public keys, hashes).
 - Information about its ownership, its use and any other properties that the signer is capable of attesting/authorising/witnessing.
 - _(Meta-)information_ about this information itself, such as how long it is valid for and external considerations which would invalidate it.
-
-</widget-text>
 </script></section><section  data-markdown><script type="text/template">
 ## Digital Signatures (again)
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px">
 
 _Signing_ large amounts of data is _not_ efficient.
 
 <br>
 
-_Hashing_ large amounts of data _is_ effecient.
+_Hashing_ large amounts of data _is_ efficient.
 
 <br>
 
@@ -570,24 +416,18 @@ A signature on the hash of some data implies a signature on the data itself.
 
 This requires that the verifier also compute the hash.
 
-</widget-text>
-
 <aside class="notes"><p>Based on pre-image resistance, a signature on the hash of some data implies a signature on the data itself. That is, we assume that attackers are unable to find or construct some data that would generate the same output hash.</p>
 <p>This requires that the verifier also compute the hash.</p>
 </aside></script></section><section  data-markdown><script type="text/template">
 ## Digital Signatures (again)
 
-<br>
-
-<widget-image src="/assets/img/1-Cryptography/Digital Signatures.png"></widget-image>
+<img style="width: 1100px" src="../../../assets/img/1-Cryptography/Digital-Signatures.png"/>
 </script></section><section  data-markdown><script type="text/template">
 <!-- .slide: data-background-color="#8D3AED" -->
 
 # Exercise
 
 ## Discuss some reasons why the 6 listed <br> hash properties are so important.
-
-</widget-text>
 
 <aside class="notes"><ul>
 <li>If an attacker can find a colliding pre-image, they can &quot;authorize&quot; something unintended.</li>
@@ -596,11 +436,9 @@ This requires that the verifier also compute the hash.
 </aside></script></section><section  data-markdown><script type="text/template">
 ## Summary
 
-<widget-text style="padding: 0 200px 0 200px" center>
-
 Cryptography is much more than encryption.
 
-<widget-text center>
+<center>
 
 - Communicate on public networks, in the open
 - Access information
@@ -608,17 +446,11 @@ Cryptography is much more than encryption.
 - Prove knowledge of some secret information
 - Represent large amounts of data succinctly
 
-</widget-text>
-
-</widget-text>
+</center>
 </script></section><section  data-markdown><script type="text/template">
 # END
 </script></section><section  data-markdown><script type="text/template">
 ## Hash Examples in Substrate
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px">
 
 **Sr25519 Signatures**
 
@@ -629,14 +461,8 @@ Sr25519 hashes the message as part of its signing process.
 **Transactions**
 
 In transactions in Substrate, key holders sign a _hash of the instructions_ when the instructions are longer than 256 bytes.
-
-</widget-text>
 </script></section><section  data-markdown><script type="text/template">
 ## Database Keys
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px">
 
 **TwoX64** is safe to use when users (read: attackers) cannot control the input, e.g. when a database key is a system-assigned index.
 
@@ -647,20 +473,14 @@ In transactions in Substrate, key holders sign a _hash of the instructions_ when
 <br>
 
 _Again, there is a whole lecture on hash-based data structures._
-
-</widget-text>
 </script></section><section  data-markdown><script type="text/template">
 ## Other Uses of Hashes in Substrate
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px" center>
 
 Hashes are also used for:
 
 <br>
 
-<widget-text center>
+<center>
 
 - Generating multisig accounts
 - Generating system-controlled accounts
@@ -668,35 +488,24 @@ Hashes are also used for:
 - Representing proposals
 - Representing claims (e.g. the asset trap)
 
-</widget-text>
+</center>
 </script></section><section  data-markdown><script type="text/template">
 ## Commutative En-/Decryption
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px">
 
 In a commutative structure, a message may be encrypted/decrypted multiple times with potentially multiple keys.
 
 <br>
 
 The output does not depend on the order of operations.
-
-</widget-text>
 </script></section><section  data-markdown><script type="text/template">
 <!-- .slide: data-background-color="#8D3AED" -->
 
-<widget-image src="/assets/img/1-Cryptography/Diffie-Hellman_Key_Exchange.svg"></widget-image>
+<img style="height: 900px" src="../../../assets/img/1-Cryptography/Diffie-Hellman_Key_Exchange.svg"/>
 
-<!-- Source: https://upload.wikimedia.org/wikipedia/commons/4/46/Diffie-Hellman_Key_Exchange.svg -->
-
-<aside class="notes"><p>Mixing paint example.</p>
+<aside class="notes"><p>Mixing paint example.
+Image Source: <a href="https://upload.wikimedia.org/wikipedia/commons/4/46/Diffie-Hellman_Key_Exchange.svg">https://upload.wikimedia.org/wikipedia/commons/4/46/Diffie-Hellman_Key_Exchange.svg</a></p>
 </aside></script></section><section  data-markdown><script type="text/template">
 ## Commutative En-/Decryption
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px">
 
 Encrypting a message with key $A$, and then encrypting the ciphertext with key $B$, would result in the same ciphertext had one encrypted with $B$ and then $A$.
 
@@ -710,14 +519,8 @@ C &=> D_A(D_B(C)) == D_B(D_A(C)) \ => M
 <br>
 
 Elliptic curve cryptography is based on _commutative_ algebraic structures.
-
-</widget-text>
 </script></section><section  data-markdown><script type="text/template">
 ## Polkadot in Practice
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px">
 
 In Substrate and Polkadot, we use ECDSA, ed25519, and sr25519.
 
@@ -728,21 +531,13 @@ Of course a valid signature is a valid signature, and there are lots of librarie
 - Subkey (CLI)
 - Substrate Primitives (runtime)
 - Polkadot JS Crypto (applications)
-
-</widget-text>
 </script></section><section  data-markdown><script type="text/template">
 ## Certifications in Substrate
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px">
 
 Practically speaking, in Substrate we will use certifications to:
 
 - Associate physical hardware with on-chain accounts (called session keys)
 - Link disparate and potentially keyless on-chain accounts in certain contexts (proxies)
-
-</widget-text>
 
 <aside class="notes"><p>See: <a href="https://docs.substrate.io/main-docs/fundamentals/accounts-addresses-keys/#specialized-accounts">https://docs.substrate.io/main-docs/fundamentals/accounts-addresses-keys/#specialized-accounts</a></p>
 </aside></script></section>
@@ -792,7 +587,7 @@ Practically speaking, in Substrate we will use certifications to:
       // options from URL query string
       const queryOptions = Reveal().getQueryHash() || {};
 
-      const options = extend(defaultOptions, {"width":1600,"height":900,"margin":0,"minScale":0.2,"maxScale":2,"transition":"none","controls":true,"progress":true,"center":true,"slideNumber":true,"backgroundTransition":"fade"}, queryOptions);
+      const options = extend(defaultOptions, {"width":1400,"height":900,"margin":0,"minScale":0.2,"maxScale":2,"transition":"none","controls":true,"progress":true,"center":true,"slideNumber":true,"backgroundTransition":"fade"}, queryOptions);
       options.baseUrl = '';
       Reveal.initialize(options);
     </script>

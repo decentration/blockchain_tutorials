@@ -22,9 +22,7 @@
       <a href="/">
         <img class="watermark-logo" src="./../../../assets/img/0-Shared/logo/PBA-logo-white.svg" alt="PBA Logo">
       </a>
-      <a href="https://polkadot.network">
-        <img class="watermark-icon" src="./../../../assets/img/0-Shared/logo/DOT-pink.svg" alt="DOT">
-      </a>
+      <img class="watermark-icon" src="./../../../assets/img/0-Shared/logo/DOT-pink.svg" alt="DOT">
     </header>
     <main class="site-reveal reveal">
       <article class="slides">
@@ -32,7 +30,7 @@
 
 # Game Theory Basics
 </script></section><section  data-markdown><script type="text/template">
-<widget-speaker name="Jonas Gehrlein" position="Research Scientist at Web3 Foundation" image="/assets/img/0-Shared/people/jonas.png" github="jonasW3F" twitter="GehrleinJonas" linkedin="jonas-gehrlein" matrix="jonas:web3.foundation"></widget-speaker>
+<widget-speaker name="Jonas Gehrlein" position="Research Scientist at Web3 Foundation" image="../../../assets/img/0-Shared/people/jonas.png" github="jonasW3F" twitter="GehrleinJonas" linkedin="jonas-gehrlein" matrix="jonas:web3.foundation"></widget-speaker>
 </script></section><section  data-markdown><script type="text/template">
 # Outline
 
@@ -107,7 +105,8 @@ In economics, game theory is used to analyze many different strategic situations
 <li><p>The systematic study of games started in the 40/50s of the 20th century:</p>
 <ul>
 <li>1944: John von Neumann and Oscar Morgenstern publish <em>Theory of Games and Economic Behavior</em>.</li>
-<li>1949: John Nash writes his dissertation. His best known contribution is on the general existence of a solution (the Nash equilibrium) for the important class of finite games.</li>
+<li>1949: John Nash writes his dissertation.
+His best known contribution is on the general existence of a solution (the Nash equilibrium) for the important class of finite games.</li>
 <li>1963: Douglas Gale and Lloyd Shapley publish seminal work on matching.</li>
 <li>1973: John Harsanyi provides important insights into mixed strategies.</li>
 <li>1976: Robert Aumann publishes seminal work on common knowledge of rationality.</li>
@@ -152,7 +151,7 @@ A game is a strategic interaction between several players, where _common knowled
 
 <widget-text style="padding: 0 3em 0 3em">
 
-An event $X$ is common knowledge if if (1) everyone knows $X$, (2) everyone knows that everyone knows $X$, (3) everyone knows that everyone knows that everyone knows $X$, and so on ad infinitum.
+An event $X$ is common knowledge if (1) everyone knows $X$, (2) everyone knows that everyone knows $X$, (3) everyone knows that everyone knows that everyone knows $X$, and so on ad infinitum.
 </script></section><section  data-markdown><script type="text/template">
 ## Examples: Common Knowledge
 
@@ -202,7 +201,8 @@ Game theory distinguishes between:
 | Economic Example | Competition between firms (assuming that all firms know other firms' costs). | Most art auctions. People tend to have highly subjective preferences that they only know themselves. |
 
 <aside class="notes"><ul>
-<li>There is also the notion of perfect and imperfect information which we should skip here. More info: <a href="https://economics.stackexchange.com/questions/13292/imperfect-vs-incomplete-information">https://economics.stackexchange.com/questions/13292/imperfect-vs-incomplete-information</a></li>
+<li>There is also the notion of perfect and imperfect information which we should skip here.
+More info: <a href="https://economics.stackexchange.com/questions/13292/imperfect-vs-incomplete-information">https://economics.stackexchange.com/questions/13292/imperfect-vs-incomplete-information</a></li>
 </ul>
 </aside></script></section><section  data-markdown><script type="text/template">
 <!-- .slide: data-background-color="#8D3AED" -->
@@ -239,13 +239,17 @@ Game theory distinguishes between:
 </widget-columns>
 
 <aside class="notes"><ol>
-<li>The game is static. For it to be dynamic, firms would need to make offers sequentially, <em>knowing what the firms before had offered</em>.</li>
+<li>The game is static.
+For it to be dynamic, firms would need to make offers sequentially, <em>knowing what the firms before had offered</em>.</li>
 </ol>
 <ul>
 <li>This lecture focuses on static games of complete information.</li>
 </ul>
 <ol>
-<li>The game is of complete information. To make information incomplete, we would need to have that the value of hiring the engineer differs between firms and is unknown between firms. Or that the cost of working for the engineer is not known to the firms. The point is that we need to have uncertainty over payoffs.</li>
+<li>The game is of complete information.
+To make information incomplete, we would need to have that the value of hiring the engineer differs between firms and is unknown between firms.
+Or that the cost of working for the engineer is not known to the firms.
+The point is that we need to have uncertainty over payoffs.</li>
 </ol>
 <ul>
 <li>When we look at auctions in Session 3.3, we will also consider games of incomplete information, both dynamic and static.</li>
@@ -305,7 +309,7 @@ In the interrogation they both are offered the following: <!-- .element: class="
 
 <center>
 
-<img style="width: 500px; margin-right: 150px;" src="/assets/img/2-Economics/Bonnie-clyde-1.png"/>
+<img style="width: 500px; margin-right: 150px;" src="../../../assets/img/2-Economics/Bonnie-clyde-1.png"/>
 
 </center>
 
@@ -320,7 +324,7 @@ First payoff is Clyde, second is Bonnie</p>
 
 <center>
 
-<img style="width: 800px; margin-right: 250px;" src="/assets/img/2-Economics/Bonnie-clyde-2.png"></widget-image>
+<img style="width: 800px; margin-right: 250px;" src="../../../assets/img/2-Economics/Bonnie-clyde-2.png"/>
 
 <br>
 
@@ -330,7 +334,8 @@ Choosing D is a _dominant strategy_.
 
 <aside class="notes"><p>No matter what Clyde does, it is always the best choice.
 So, they end up both defecting, resulting in 4 years each.
-It would be in their best interest to cooperate and not to say anything. This would minimize the total jail time for the two.
+It would be in their best interest to cooperate and not to say anything.
+This would minimize the total jail time for the two.
 However, both Bonnie and Clyde are rational utility maximizers.
 So, they end up in a situation where they not only fare worse <em>individually</em> (4 instead of 2) but also <em>jointly</em> (the total jail time is 8 years rather than 4 years).</p>
 </aside></script></section><section  data-markdown><script type="text/template">
@@ -342,15 +347,18 @@ So, they end up in a situation where they not only fare worse <em>individually</
 
 **[Nuclear Arms Race](https://www.history.com/topics/cold-war/arms-race)**
 
-NATO and Russia prefer no arms race to an arms race. Yet, having some arms is preferable to having no arms, irrespective whether the other one is armed.
+NATO and Russia prefer no arms race to an arms race.
+Yet, having some arms is preferable to having no arms, irrespective whether the other one is armed.
 
 <br>
 
 **[OPEC](https://www.opec.org/opec_web/en/)**
 
-Limiting oil supply is in the best interest of all. However, given the high price that thus results, everyone has an incentive to increase individual oil supply to maximize profits.
+Limiting oil supply is in the best interest of all.
+However, given the high price that thus results, everyone has an incentive to increase individual oil supply to maximize profits.
 
-<aside class="notes"><p>OPEC and Cartels generally seems to overcome the Prisoners&#39; Dilemma... More on that later.</p>
+<aside class="notes"><p>OPEC and Cartels generally seems to overcome the Prisoners&#39; Dilemma...
+More on that later.</p>
 </aside></script></section><section  data-markdown><script type="text/template">
 ## Coordination Game
 
@@ -382,7 +390,7 @@ One instance is the coordination game. <!-- .element: class="fragment" -->
 </widget-column>
 <widget-column>
 
-<img style="width: 550px;" src="/assets/img/2-Economics/Players.png"/>
+<img style="width: 550px;" src="../../../assets/img/2-Economics/Players.png"/>
 
 </widget-column>
 </widget-columns>
@@ -406,7 +414,7 @@ One instance is the coordination game. <!-- .element: class="fragment" -->
 </widget-column>
 <widget-column>
 
-<img style="width: 550px;" src="/assets/img/2-Economics/Players.png"/>
+<img style="width: 550px;" src="../../../assets/img/2-Economics/Players.png"/>
 
 </widget-column>
 </widget-columns>
@@ -431,7 +439,7 @@ One instance is the coordination game. <!-- .element: class="fragment" -->
 </widget-column>
 <widget-column>
 
-<img style="width: 550px;" src="/assets/img/2-Economics/Players.png"/>
+<img style="width: 550px;" src="../../../assets/img/2-Economics/Players.png"/>
 
 </widget-column>
 </widget-columns>
@@ -448,7 +456,7 @@ Nash Equilibrium: A combination of actions such that all players choose optimall
 - Sometimes people switch between equilibria (if they are made to)... <!-- .element: class="fragment" -->
 
 <center>
-<img style="width: 550px;" src="/assets/img/2-Economics/2.2-sweden-1967.jpg"/>
+<img style="width: 550px;" src="../../../assets/img/2-Economics/2.2-sweden-1967.jpg"/>
 
 _Sweden, 1967._ <!-- .element: class="fragment" -->
 
@@ -597,8 +605,10 @@ Observe: Not contributing is a _dominant strategy_.
 
 <aside class="notes"><ul>
 <li>So, if $1/3 &lt; \alpha &lt; 1$, then our public good game really is a prisoner&#39;s dilemma with more than two players: it is socially optimal for everyone to contribute but not contributing is a dominant strategy for everyone.</li>
-<li>If $\alpha &gt; 1$, then the individual marginal benefit is always higher than the individual marginal cost, and it becomes a dominant strategy for all players to fully invest in the public good. Then, there would be no public goods problem...</li>
-<li>If $\alpha &lt; 1/3$, there is no public good problem, either. It is socially and individually optimal not to contribute.</li>
+<li>If $\alpha &gt; 1$, then the individual marginal benefit is always higher than the individual marginal cost, and it becomes a dominant strategy for all players to fully invest in the public good.
+Then, there would be no public goods problem...</li>
+<li>If $\alpha &lt; 1/3$, there is no public good problem, either.
+It is socially and individually optimal not to contribute.</li>
 </ul>
 </aside></script></section><section  data-markdown><script type="text/template">
 ## Public-Goods in the laboratory
@@ -877,7 +887,8 @@ Solution: $\hat k_1 = \hat k_2 = K/4$.
 
 <widget-text style="padding: 0 3em 0 3em">
 
-The socially optimal consumption level is _lower_ than the mutually optimal one... Why?
+The socially optimal consumption level is _lower_ than the mutually optimal one...
+Why?
 
 <br>
 
@@ -901,7 +912,8 @@ u_1(\hat k_1,\hat k_2) &= \ln(K/4) + \ln(K/2) = \ln(K^2/8)
 
 Traditional solutions to the tragedy of the commons:
 
-- Taxes: The government requires both players to pay a tax $\tau\cdot k_i$, where $\tau > 0$ is the tax rate. This way, consumption becomes more expensive, leading to a reduction.
+- Taxes: The government requires both players to pay a tax $\tau\cdot k_i$, where $\tau > 0$ is the tax rate.
+  This way, consumption becomes more expensive, leading to a reduction.
 - Licenses: The government might charge a fee $F> 0$ to consume in the first place and then redistributes the proceeds again among the affected parties.
 </script></section><section  data-markdown><script type="text/template">
 ## Summary (so far...)
@@ -965,7 +977,13 @@ Traditional solutions to the tragedy of the commons:
 
 <widget-text style="padding: 0 3em 0 3em">
 
-> Jack and Christine are rivals and keep taunting each other in front of others. At one time, Jack challenges Christine to a game of chicken. He proposes that they both get in their cars and drive towards each other on a road. In the middle of the distance between each other, there is a small bridge with a single line. Whoever swerves away before the bridge _chickened out_. If both keep straight, there is no way to avoid a strong collision between the two cars. All friends will be present to see the result.
+> Jack and Christine are rivals and keep taunting each other in front of others.
+> At one time, Jack challenges Christine to a game of chicken.
+> He proposes that they both get in their cars and drive towards each other on a road.
+> In the middle of the distance between each other, there is a small bridge with a single lane.
+> Whoever swerves away before the bridge _chickened out_.
+> If both keep straight, there is no way to avoid a strong collision between the two cars.
+> All friends will be present to see the result.
 </script></section><section  data-markdown><script type="text/template">
 ## Task
 
@@ -999,7 +1017,7 @@ Traditional solutions to the tragedy of the commons:
 ## Game 1: Guessing Game
 
 <center>
-<img style="width: 550px;" src="/assets/img/2-Economics/2.2-qr-academy_guess.png"/>
+<img style="width: 550px;" src="../../../assets/img/2-Economics/2.2-qr-academy_guess.png"/>
 </center>
 
 #### https://otree.w3f.tech/room/academy_guess
@@ -1052,7 +1070,7 @@ Traditional solutions to the tragedy of the commons:
 ## Game 2: Let's go!
 
 <center>
-<img style="width: 550px;" src="/assets/img/2-Economics/2.2-qr-academy_prisoner.png"/>
+<img style="width: 550px;" src="../../../assets/img/2-Economics/2.2-qr-academy_prisoner.png"/>
 </center>
 
 #### https://otree.w3f.tech/room/academy_prisoner
@@ -1072,7 +1090,7 @@ Traditional solutions to the tragedy of the commons:
 ## Game 3: Instructions
 
 <center>
-<img style="width: 1000px;" src="/assets/img/2-Economics/2.2-pgg-instructions.png">
+<img style="width: 1000px;" src="../../../assets/img/2-Economics/2.2-pgg-instructions.png">
 </center>
 
 <!-- TODO CONTENT replace above with text & table (if needed) -->
@@ -1084,19 +1102,19 @@ Traditional solutions to the tragedy of the commons:
 ## Game 3: Contribution
 
 <center>
-<img style="width: 1000px;" src="/assets/img/2-Economics/2.2-pgg-contribution.png">
+<img style="width: 1000px;" src="../../../assets/img/2-Economics/2.2-pgg-contribution.png">
 </center>
 </script></section><section  data-markdown><script type="text/template">
 ## Game 3: Punishment
 
 <center>
-<img style="width: 1000px;" src="/assets/img/2-Economics/2.2-pgg-punishment.png">
+<img style="width: 1000px;" src="../../../assets/img/2-Economics/2.2-pgg-punishment.png">
 </center>
 </script></section><section  data-markdown><script type="text/template">
 ## Game 3: Payout
 
 <center>
-<img style="width: 1000px;" src="/assets/img/2-Economics/2.2-pgg-result.png">
+<img style="width: 1000px;" src="../../../assets/img/2-Economics/2.2-pgg-result.png">
 </center>
 </script></section><section  data-markdown><script type="text/template">
 <!-- .slide: data-background-color="#8D3AED" -->
@@ -1106,7 +1124,7 @@ Traditional solutions to the tragedy of the commons:
 ## Game 3: Let's go!
 
 <center>
-<img style="width: 550px;" src="/assets/img/2-Economics/2.2-qr-academy_academy_publicgood.png">
+<img style="width: 550px;" src="../../../assets/img/2-Economics/2.2-qr-academy_academy_publicgood.png">
 </center>
 
 #### https://otree.w3f.tech/room/academy_publicgood
@@ -1121,7 +1139,8 @@ Traditional solutions to the tragedy of the commons:
 - Why do people punish?
 
 <aside class="notes"><ul>
-<li>Additional free rider problem: Punishment was fixed to 100% of the other&#39;s points. That means, it was better to hope for other players to punish a player.</li>
+<li>Additional free rider problem: Punishment was fixed to 100% of the other&#39;s points.
+That means, it was better to hope for other players to punish a player.</li>
 <li>They cooperate maybe because they did not understand the game.</li>
 </ul>
 </aside></script></section><section  data-markdown><script type="text/template">
@@ -1184,7 +1203,7 @@ Traditional solutions to the tragedy of the commons:
       // options from URL query string
       const queryOptions = Reveal().getQueryHash() || {};
 
-      const options = extend(defaultOptions, {"width":1600,"height":900,"margin":0,"minScale":0.2,"maxScale":2,"transition":"none","controls":true,"progress":true,"center":true,"slideNumber":true,"backgroundTransition":"fade"}, queryOptions);
+      const options = extend(defaultOptions, {"width":1400,"height":900,"margin":0,"minScale":0.2,"maxScale":2,"transition":"none","controls":true,"progress":true,"center":true,"slideNumber":true,"backgroundTransition":"fade"}, queryOptions);
       options.baseUrl = '';
       Reveal.initialize(options);
     </script>

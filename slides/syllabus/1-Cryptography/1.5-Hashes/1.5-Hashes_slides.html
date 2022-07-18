@@ -22,9 +22,7 @@
       <a href="/">
         <img class="watermark-logo" src="./../../../assets/img/0-Shared/logo/PBA-logo-white.svg" alt="PBA Logo">
       </a>
-      <a href="https://polkadot.network">
-        <img class="watermark-icon" src="./../../../assets/img/0-Shared/logo/DOT-pink.svg" alt="DOT">
-      </a>
+      <img class="watermark-icon" src="./../../../assets/img/0-Shared/logo/DOT-pink.svg" alt="DOT">
     </header>
     <main class="site-reveal reveal">
       <article class="slides">
@@ -95,7 +93,7 @@ For our purposes, we generally want them to be fast.
 ### Speed
 
 <center>
-<widget-image style="width: 25em" src="/assets/img/1-Cryptography/hash-speed.png"></widget-image>
+<img  style="width: 25em" src="../../../assets/img/1-Cryptography/hash-speed.png"/>
 </center>
 </script></section><section  data-markdown><script type="text/template">
 ### Non-Cryptographic Hash Functions
@@ -225,7 +223,7 @@ In [Bittorrent](https://en.wikipedia.org/wiki/BitTorrent), each file chunk is ha
 
 <widget-text style="padding: 0 200px 0 200px">
 
-Public keys can be used authorise actions by signing of instructions.
+Public keys can be used to authorize actions by signing of instructions.
 
 The properties of hash functions allow other kinds of representations.
 </script></section><section  data-markdown><script type="text/template">
@@ -247,9 +245,9 @@ Hash of pub key:   0x8fea32b38ed87b4739378aa48f73ea5d0333b973ee72c5cb7578b143f82
 
 <widget-text style="padding: 0 200px 0 200px">
 
-<widget-image src="/assets/img/1-Cryptography/Multi-Signatures.png"></widget-image>
+<img  src="../../../assets/img/1-Cryptography/Multi-Signatures.png"/>
 
-<aside class="notes"><p>By hashing a concatenation of several public keys, a system can create new IDs that require signature thresholds to authorise activity.</p>
+<aside class="notes"><p>By hashing a concatenation of several public keys, a system can create new IDs that require signature thresholds to authorize activity.</p>
 </aside></script></section><section  data-markdown><script type="text/template">
 ### Internal System IDs
 
@@ -259,7 +257,7 @@ Modules within a system may have their own information stored in other parts of 
 
 <br>
 
-Storage they authorise use of by the module's internal logic.
+Storage they authorize use of by the module's internal logic.
 
 <aside class="notes"><p>The hash of some input (e.g. a byte-string representing the module) can be used to identify a particular module within a system.</p>
 </aside></script></section><section  data-markdown><script type="text/template">
@@ -355,7 +353,7 @@ Any change at any point in the list would create downstream changes to all hashe
 
 <widget-text style="padding: 0 200px 0 200px">
 
-<widget-image src="/assets/img/1-Cryptography/Merkle Tree.png"></widget-image>
+<img  src="../../../assets/img/1-Cryptography/Merkle-Tree.png"/>
 
 <aside class="notes"><p>Each leaf is the hash of some data object and each node is the hash of its children.</p>
 </aside></script></section><section  data-markdown><script type="text/template">
@@ -415,7 +413,7 @@ Merkle trees allow many proofs relevant to the rest of this course, e.g. that so
       // options from URL query string
       const queryOptions = Reveal().getQueryHash() || {};
 
-      const options = extend(defaultOptions, {"width":1600,"height":900,"margin":0,"minScale":0.2,"maxScale":2,"transition":"none","controls":true,"progress":true,"center":true,"slideNumber":true,"backgroundTransition":"fade"}, queryOptions);
+      const options = extend(defaultOptions, {"width":1400,"height":900,"margin":0,"minScale":0.2,"maxScale":2,"transition":"none","controls":true,"progress":true,"center":true,"slideNumber":true,"backgroundTransition":"fade"}, queryOptions);
       options.baseUrl = '';
       Reveal.initialize(options);
     </script>

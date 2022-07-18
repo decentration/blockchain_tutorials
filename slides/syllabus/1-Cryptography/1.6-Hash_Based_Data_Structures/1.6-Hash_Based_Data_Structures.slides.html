@@ -22,9 +22,7 @@
       <a href="/">
         <img class="watermark-logo" src="./../../../assets/img/0-Shared/logo/PBA-logo-white.svg" alt="PBA Logo">
       </a>
-      <a href="https://polkadot.network">
-        <img class="watermark-icon" src="./../../../assets/img/0-Shared/logo/DOT-pink.svg" alt="DOT">
-      </a>
+      <img class="watermark-icon" src="./../../../assets/img/0-Shared/logo/DOT-pink.svg" alt="DOT">
     </header>
     <main class="site-reveal reveal">
       <article class="slides">
@@ -45,24 +43,18 @@
 ## Hash chains
 
 <center>
-<widget-image style="width: 50vw" src="/assets/img/1-Cryptography/Hash Chains.png"></widget-image>
+<img  style="width: 1000px" src="../../../assets/img/1-Cryptography/Hash-Chains.png"/>
 </center>
 </script></section><section  data-markdown><script type="text/template">
 ## Merkle trees
 
 <br>
 
-A binary Merkle tree:
-
-<!--
 <center>
-<widget-image style="width: 50vw" src="/assets/img/1-Cryptography/Merkle tree.png"></widget-image>
+<img  style="width: 1000px" src="../../../assets/img/1-Cryptography/Merkle-tree-all-purple.png"/>
 </center>
--->
 
-<center>
-<widget-image style="width: 50vw" src="/assets/img/1-Cryptography/Merkle tree all purple.png"></widget-image>
-</center>
+A binary Merkle tree
 </script></section><section  data-markdown><script type="text/template">
 ## Proofs
 
@@ -76,7 +68,7 @@ A binary Merkle tree:
 ## Proofs: Merkle copaths
 
 <center>
-<widget-image style="width: 50vw" src="/assets/img/1-Cryptography/Merkle Copaths.png"></widget-image>
+<img  style="width: 1000px" src="../../../assets/img/1-Cryptography/Merkle-Copaths.png"/>
 </center>
 
 <aside class="notes"><p>Given the children of a node, we can compute a node
@@ -138,7 +130,7 @@ _Words:_ to, tea, ted, ten, inn, A.
 <br>
 
 <center>
-<widget-image style="width: 50vw" src="/assets/img/1-Cryptography/Trie.png"></widget-image>
+<img  style="width: 1000px" src="../../../assets/img/1-Cryptography/Trie.png"/>
 </center>
 
 <br>
@@ -152,12 +144,13 @@ _Words:_ to, tea, ted, ten, inn, A.
 <br>
 
 <center>
-<widget-image style="width: 50vw" src="/assets/img/1-Cryptography/Patricia Trie.png"></widget-image>
+<img  style="width: 800px" src="../../../assets/img/1-Cryptography/Patricia-Trie.png"/>
 </center>
 
 <br>
 
 If only one option for a sequence we merge them.
+
 </center>
 
 <!-- TODO maybe some code stuff with extension nodes etc. -->
@@ -199,7 +192,7 @@ If only one option for a sequence we merge them.
 ## Merkle Mountain Ranges
 
 <center>
-<widget-image style="width: 50vw" src="/assets/img/1-Cryptography/U-MMR 13.png"></widget-image>
+<img  style="width: 1000px" src="../../../assets/img/1-Cryptography/U-MMR-13.png"/>
 </center>
 
 <aside class="notes"><p>we have several Merkle trees of sizes that are powers of two.
@@ -208,13 +201,13 @@ The trees that are here correspond to the binary digits of 13 that are 1.</p>
 ## Merkle Mountain Ranges
 
 <center>
-<widget-image style="width: 50vw" src="/assets/img/1-Cryptography/U-MMR 14.png"></widget-image>
+<img  style="width: 1000px" src="../../../assets/img/1-Cryptography/U-MMR-14.png"/>
 </center>
 </script></section><section  data-markdown><script type="text/template">
 ## Merkle Mountain Ranges
 
 <center>
-<widget-image style="width: 50vw" src="/assets/img/1-Cryptography/MMR 13.png"></widget-image>
+<img  style="width: 1000px" src="../../../assets/img/1-Cryptography/MMR-13.png"/>
 </center>
 
 <aside class="notes"><ul>
@@ -280,7 +273,7 @@ The trees that are here correspond to the binary digits of 13 that are 1.</p>
       // options from URL query string
       const queryOptions = Reveal().getQueryHash() || {};
 
-      const options = extend(defaultOptions, {"width":1600,"height":900,"margin":0,"minScale":0.2,"maxScale":2,"transition":"none","controls":true,"progress":true,"center":true,"slideNumber":true,"backgroundTransition":"fade"}, queryOptions);
+      const options = extend(defaultOptions, {"width":1400,"height":900,"margin":0,"minScale":0.2,"maxScale":2,"transition":"none","controls":true,"progress":true,"center":true,"slideNumber":true,"backgroundTransition":"fade"}, queryOptions);
       options.baseUrl = '';
       Reveal.initialize(options);
     </script>
