@@ -45,12 +45,10 @@ A decision making process that strives to achieve acceptance of a decision by al
 </aside></script></section><section  data-markdown><script type="text/template">
 ## Adversarial Conditions
 
-<br>
-
-* The participants want to agree on _something_
-* They don't trust each other
-* Some could be faulty, or make mistakes
-* Some could be straight up malicious
+- The participants want to agree on _something_
+- They don't trust each other
+- Some could be faulty, or make mistakes
+- Some could be straight up malicious
 </script></section><section ><section data-markdown><script type="text/template">
 ## Desired Properties
 
@@ -77,9 +75,9 @@ If all participants unanimously propose the same decision , all honest participa
 
 <widget-column>
 
-* Termination - Stan, Kyle, and Kenny will each eventually decide where to eat.
-* Agreement - Stan, Kyle, and Kenny will each decide to eat at the same place.
-* Integrity - Stan, Kyle, and Kenny will eat at either Whistlin' Willies or Casa Bonita.
+- Termination - Stan, Kyle, and Kenny will each eventually decide where to eat.
+- Agreement - Stan, Kyle, and Kenny will each decide to eat at the same place.
+- Integrity - Stan, Kyle, and Kenny will eat at either Whistlin' Willies or Casa Bonita.
 
 </widget-column>
 </widget-columns>
@@ -123,9 +121,9 @@ Someone please volunteer to describe what one of these means in this example.</p
 
 <widget-column>
 
-* Divisions plan to attack
-* Must make coordinated attack to succeed
-* Some generals might be traitors and behave maliciously
+- Divisions plan to attack
+- Must make coordinated attack to succeed
+- Some generals might be traitors and behave maliciously
 
 </widget-column>
 </widget-columns>
@@ -162,32 +160,29 @@ What do our three properties mean in this scenario?</p>
 
 <widget-column>
 
-* Consider an Airplane flight computer.
-* The pilot _must_ know the airspeed at all times.
-* Airspeed sensors can fail.
-* Sensors can be buggy.
-* Are these malicious?
+- Consider an Airplane flight computer.
+- The pilot _must_ know the airspeed at all times.
+- Airspeed sensors can fail.
+- Sensors can be buggy.
+- Are these malicious?
 
 </widget-column>
 </widget-columns>
 
-<aside class="notes"><p>Consider an Airplane flight computer. It is critical that the pilot (human or automated) knows the aircraft&#39;s airspeed at all times. 
+<aside class="notes"><p>Consider an Airplane flight computer. It is critical that the pilot (human or automated) knows the aircraft&#39;s airspeed at all times.
 Airspeed sensors can fail due to extreme temperatures, icing, solar radiation, and other reasons.
 For this reason, there are redundant sensors, and they run a consensus protocol.</p>
-<p>Imagine that one of the sensors has an overflow <em>bug</em> such that when the airspeed exceeds a certain threshold, maybe <code>u8::max_value()</code>, it actually reports a much lower speed. </p>
+<p>Imagine that one of the sensors has an overflow <em>bug</em> such that when the airspeed exceeds a certain threshold, maybe <code>u8::max_value()</code>, it actually reports a much lower speed.</p>
 <p>Are these crash faults or byzantine?</p>
 <p>In a blockchain system, bugs in the code may cause nodes whose operators are intending to be honest, to deviate from the protocol anyway. This is why client diversity is important.</p>
-</aside></script></section></section><section ><section data-markdown><script type="text/template">## Synchrony
-
-<widget-text>
+</aside></script></section></section><section ><section data-markdown><script type="text/template">
+## Synchrony
 
 A system is one of:
 
-<br>
-
-* **Synchronous** - When a message is sent, it is received immediately by all recipients.
-* **Asynchronous** - When a message is sent it may be received after some delay, or not at all. The sender doe not know whether it is received. Messages may be received in different orders by different parties.
-* **Partially Synchronous** - When a message is sent, it may be received after some delay up to a maximum delay, $T$. It may not be dropped entirely. Messages may be received in different orders by different parties.
+- **Synchronous** - When a message is sent, it is received immediately by all recipients.
+- **Asynchronous** - When a message is sent it may be received after some delay, or not at all. The sender doe not know whether it is received. Messages may be received in different orders by different parties.
+- **Partially Synchronous** - When a message is sent, it may be received after some delay up to a maximum delay, $T$. It may not be dropped entirely. Messages may be received in different orders by different parties.
 
 Roughly analogous to real-time (async) vs. turn-based (sync) games.
 </script></section><section data-markdown><script type="text/template">
@@ -197,13 +192,11 @@ Roughly analogous to real-time (async) vs. turn-based (sync) games.
 
 Classify each of these:
 
-<br>
-
-* Telephone call
-* Email
-* Text message
-* Jitsi video call
-* Element chat
+- Telephone call
+- Email
+- Text message
+- Jitsi video call
+- Element chat
 
 <aside class="notes"><p>Answers</p>
 <ul>
@@ -218,9 +211,10 @@ Classify each of these:
 
 A system is one of:
 
-* **Deterministic** - The same inputs give the same outputs every single time.
-* **Probabilistic** - The same inputs may not give the same outputs. Requires a source of entropy. eg coin flipping.
-</script></section><section  data-markdown><script type="text/template">## FLP Impossibility
+- **Deterministic** - The same inputs give the same outputs every single time.
+- **Probabilistic** - The same inputs may not give the same outputs. Requires a source of entropy. eg coin flipping.
+</script></section><section  data-markdown><script type="text/template">
+## FLP Impossibility
 
 <img style="padding: 0 200px 0 0" src="../../../assets/img/3-Blockchain/3.2-FLP-impossible.png"/>
 
@@ -241,10 +235,8 @@ So what are we even trying to decide? A few things:
 
 <widget-text center>
 
-<br>
-
-* **Author selection** - Who gets to author the next block
-* **Finality** - Which blocks are final
+- **Author selection** - Who gets to author the next block
+- **Finality** - Which blocks are final
 
 <aside class="notes"><p>Finality is basically like safety. Finality can be proved to entities that are not involved in consensus.</p>
 <p>These two decisions can be entirely orthogonal to one another, or wrapped up together. I&#39;ll focus on finality first</p>
@@ -257,17 +249,15 @@ Blockchains are intended to keep processing and finalizing transactions forever.
 
 We frame the desireable properties differently. At a very high level they are:
 
-* **Liveness** - Something good will eventually happen
-* **Safety** - Nothing bad will happen
+- **Liveness** - Something good will eventually happen
+- **Safety** - Nothing bad will happen
 </script></section><section data-markdown><script type="text/template">
 ## Example: Finalizing blocks
 
-<br>
-
 <widget-text center>
 
-* Liveness - Another block will eventually be finalized.
-* Safety - No two conflicting blocks will ever be finalized by honest participants.
+- Liveness - Another block will eventually be finalized.
+- Safety - No two conflicting blocks will ever be finalized by honest participants.
 
 <aside class="notes"><p>Liveness here obviously depends on liveness in the authoring. No more blocks will be finalized if no more blocks are authored.</p>
 </aside></script></section><section data-markdown><script type="text/template">
@@ -292,8 +282,8 @@ All the blockchain consensus engines we looked at assume some threshold of hones
 
 <widget-text center>
 
-* Why would anyone even want to participate?
-* How do we define misbehavior?
+- Why would anyone even want to participate?
+- How do we define misbehavior?
 </script></section><section data-markdown><script type="text/template">
 ## Game Theory!
 
@@ -311,8 +301,6 @@ Incentive designers may potentially:
 </aside></script></section><section data-markdown><script type="text/template">
 ### Potential Rewards
 
-<br>
-
 <widget-text center>
 
 - Explicit: Block reward paid by inflation
@@ -328,14 +316,12 @@ Instead, aspiring participants will typically lock up a security deposit which c
 </script></section><section data-markdown><script type="text/template">
 ## What is potentially punishable?
 
-<br>
-
 <widget-text center>
 
-* Authoring when you aren't supposed to
-* Failing to author when you are supposed to
-* Casting finality votes for conflicting candidate blocks
-* Casting a finality vote for a block (or chain) that includes an invalid state transition.
+- Authoring when you aren't supposed to
+- Failing to author when you are supposed to
+- Casting finality votes for conflicting candidate blocks
+- Casting a finality vote for a block (or chain) that includes an invalid state transition.
 
 _How severe are each of these offences? Do they all warrant a slash? A full slash?_
 </script></section><section data-markdown><script type="text/template">
@@ -351,8 +337,6 @@ Question: How would you respond?
 </aside></script></section></section><section ><section data-markdown><script type="text/template">
 ## Case Study: Nakamoto Consensus
 
-<br>
-
 - Aka Proof of Work
 - Anyone can participate anonymously
 - Can start and stop participating at will without notice
@@ -362,9 +346,7 @@ Question: How would you respond?
 </aside></script></section><section data-markdown><script type="text/template">
 ### Finality in Nakamoto Consensus
 
-<br>
-
-- Longest chain rule* - Longest chain is "best"... for now
+- Longest chain rule\* - Longest chain is "best"... for now
 - Someone could always start mining a chain and, with low but non-zero probability, end up with it longer.
 - There could _already_ be a longer chain that you just haven't heard of.
 
@@ -378,15 +360,11 @@ blocks can be downloaded and executed much more quickly that the target block ti
 </aside></script></section><section data-markdown><script type="text/template">
 ## Punishment and Reward in Nakamoto Consensus
 
-<br>
-
-* Implicit punishment: Mining a block costs energy. If that block is not in the best chain you wasted the energy.
-* No reward in the consensus layer
-* (Usually) an explicit reward in the economic game: Block authors are paid with inflation and transaction fees.
+- Implicit punishment: Mining a block costs energy. If that block is not in the best chain you wasted the energy.
+- No reward in the consensus layer
+- (Usually) an explicit reward in the economic game: Block authors are paid with inflation and transaction fees.
 </script></section></section><section ><section data-markdown><script type="text/template">
 ## Case Study: Tendermint
-
-<br>
 
 - Assume partial synchrony - time is divided into slots
 - One block is up for Byzantine agreement in each slot.
@@ -397,11 +375,9 @@ Practically speaking, time is divided into &quot;slots&quot; of equal length, an
 </aside></script></section><section data-markdown><script type="text/template">
 ## Finality in Tendermint
 
-<br>
-
-* Deterministic finality - Once a block is finalized, we know it is finalized*.
-* Next round doesn't start until the previous one ends.
-* Forkless - Forks are disallowed because blocks can only be authored on finalized parents.
+- Deterministic finality - Once a block is finalized, we know it is finalized\*.
+- Next round doesn't start until the previous one ends.
+- Forkless - Forks are disallowed because blocks can only be authored on finalized parents.
 
 <aside class="notes"><p>Because it is based on Byzantine agreement, we know that a finalized block will never be revierted <em>as long as our assumptions about honest participant threshold are met</em>. As we discussed, game theory can help ensure the honesty assumptions are met.</p>
 <p>Tendermint is often touted as &quot;instant finality&quot;. It is instant in the sense that finality is tied to authorship. In practice this means that authorship, which is inherently O(n), is throttled down to stay in sync with finality which is O(n^2).</p>
@@ -427,8 +403,6 @@ This approach is used in Substrate.
 </script></section></section><section ><section data-markdown><script type="text/template">
 ## Case Study: Grandpa
 
-<br>
-
 <widget-text center>
 
 - Deterministic finality _only_
@@ -443,10 +417,10 @@ Finalizing a block in a BFT system with $n$ participants is in $O(n^2)$, In Tend
 
 Now that finality is separated, we treat each vote as a vote not only for one block, but also for each ancestor block. This significantly reduces the number of total messages sent.
 
-* Allows the chain to stay live even when many validators are offline
-* Allows for a challenge period to delay finality if needed
+- Allows the chain to stay live even when many validators are offline
+- Allows for a challenge period to delay finality if needed
 </script></section></section><section  data-markdown><script type="text/template">
-## Authoring Schemes<br>(Finite Participant)
+## Authoring Schemes(Finite Participant)
 
 Regardless of whether finality is separated from block authoring or not, we need a way to decide who can author the next block.
 
@@ -468,15 +442,13 @@ Question: Why is this better than Aura?
 </aside></script></section><section  data-markdown><script type="text/template">
 ## Summary
 
-<br>
-
 <widget-text center>
 
-* Networks can be {Synchronous, Asynchronous}
-* Consensus systems can be {Deterministic, Probabilistic}
-* Consensus systems can be {Open participation, Finite participation}
-* There is always an assumption that at least {1/2, 2/3} participants are honest
-* In decentralized systems, we use Economics and Game Theory to incentivize honest execution of the consensus protocol
+- Networks can be {Synchronous, Asynchronous}
+- Consensus systems can be {Deterministic, Probabilistic}
+- Consensus systems can be {Open participation, Finite participation}
+- There is always an assumption that at least {1/2, 2/3} participants are honest
+- In decentralized systems, we use Economics and Game Theory to incentivize honest execution of the consensus protocol
 </script></section>
       </article>
     </main>

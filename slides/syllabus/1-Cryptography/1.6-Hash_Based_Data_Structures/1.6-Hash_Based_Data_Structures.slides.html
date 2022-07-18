@@ -19,7 +19,7 @@
   </head>
   <body class="site">
     <header class="site-header">
-      <a href="/">
+      <a href="">
         <img class="watermark-logo" src="./../../../assets/img/0-Shared/logo/PBA-logo-white.svg" alt="PBA Logo">
       </a>
       <img class="watermark-icon" src="./../../../assets/img/0-Shared/logo/DOT-pink.svg" alt="DOT">
@@ -30,45 +30,35 @@
 
 # Hash Based Data Structures
 </script></section><section  data-markdown><script type="text/template">
-## Comparison to pointer based data structures
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
+## Comparison to<br>Pointer Based Data Structures
 
 - A hash is a commitment to what is in the linked part.
   A pointer tells you where it is
 - We can't have cycles of hashes
 </script></section><section  data-markdown><script type="text/template">
-## Hash chains
+## Hash Chains
 
 <center>
-<img  style="width: 1000px" src="../../../assets/img/1-Cryptography/Hash-Chains.png"/>
+<img  style="width: 800px" src="../../../assets/img/1-Cryptography/Hash-Chains.png"/>
 </center>
 </script></section><section  data-markdown><script type="text/template">
-## Merkle trees
-
-<br>
+## Merkle Trees
 
 <center>
-<img  style="width: 1000px" src="../../../assets/img/1-Cryptography/Merkle-tree-all-purple.png"/>
+<img  style="width: 800px" src="../../../assets/img/1-Cryptography/Merkle-tree-all-purple.png"/>
 </center>
 
 A binary Merkle tree
 </script></section><section  data-markdown><script type="text/template">
 ## Proofs
 
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
-
 - The root or head hash is a commitment to the entire data structure
 - Generate a proof by expanding some but not all hashes
 </script></section><section  data-markdown><script type="text/template">
-## Proofs: Merkle copaths
+## Proofs: Merkle Copaths
 
 <center>
-<img  style="width: 1000px" src="../../../assets/img/1-Cryptography/Merkle-Copaths.png"/>
+<img  style="width: 800px" src="../../../assets/img/1-Cryptography/Merkle-Copaths.png"/>
 </center>
 
 <aside class="notes"><p>Given the children of a node, we can compute a node
@@ -77,28 +67,18 @@ If we compute the correct root, this proves that the leaf was in the tree</p>
 </aside></script></section><section  data-markdown><script type="text/template">
 ## Security
 
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
-
 - collision resistance
   - can give only-one preimage for each hash
   - so a binding commitment to the link
 
 <aside class="notes"><p>explain what could happen when this fails.</p>
 </aside></script></section><section  data-markdown><script type="text/template">
-<widget-text style="padding: 0 200px 0 200px ">
-
 - Proof of a leaf has size $O(\log n)$
 - and so do proofs of updates of a leaf
 </script></section><section  data-markdown><script type="text/template">
-## Key-value databases and tries
+## Key-Value Databases and Tries
 </script></section><section  data-markdown><script type="text/template">
 ## Key-value database
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
 
 The data structure stores a map `key -> value`
 
@@ -109,11 +89,7 @@ We should be able to:
 1. For any key, if `<key,value>` is in the database, we can prove it.
 1. If no value is associated to a key, we need to be able to prove that as well.
 </script></section><section  data-markdown><script type="text/template">
-## Types of data structures we'll look at
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
+## Types of Data Structures
 
 - _**Trees**_ are Rooted, Undirected Acyclic Graphs
 - _**Merkle Trees**_ are _trees_ which use hashes as links.
@@ -122,18 +98,16 @@ We should be able to:
 - _**Radix Tries**_ are a particular class of a trie where:
   - The location of a value is determined the path constructed one digit at a time.
 - _**Patricia Tries**_ are _radix tries_ which are optimized to ensure lonely node-paths are consolidated into a single node.
-</script></section><section  data-markdown><script type="text/template">
+
+<aside class="notes"><p>Just a selection we&#39;ll cover in this course.</p>
+</aside></script></section><section  data-markdown><script type="text/template">
 ## Radix Trie
 
 _Words:_ to, tea, ted, ten, inn, A.
 
-<br>
-
 <center>
-<img  style="width: 1000px" src="../../../assets/img/1-Cryptography/Trie.png"/>
+<img  style="width: 800px" src="../../../assets/img/1-Cryptography/Trie.png"/>
 </center>
-
-<br>
 
 Each node splits on the next digit in base $r$
 </script></section><section  data-markdown><script type="text/template">
@@ -141,13 +115,9 @@ Each node splits on the next digit in base $r$
 
 _Words:_ to, tea, ted, ten, inn, A.
 
-<br>
-
 <center>
-<img  style="width: 800px" src="../../../assets/img/1-Cryptography/Patricia-Trie.png"/>
+<img  style="width: 700px" src="../../../assets/img/1-Cryptography/Patricia-Trie.png"/>
 </center>
-
-<br>
 
 If only one option for a sequence we merge them.
 
@@ -155,21 +125,13 @@ If only one option for a sequence we merge them.
 
 <!-- TODO maybe some code stuff with extension nodes etc. -->
 </script></section><section  data-markdown><script type="text/template">
-## Hash trie
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
+## Hash Trie
 
 - We may pre-hash the data before inserting it
 - This improves the balance... except under attack!
 - Could be a Merkle trie or regular.
 </script></section><section  data-markdown><script type="text/template">
-## Computational and storage trade-offs
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
+## Computational and Storage <br>Trade-offs
 
 - What radix $r$ is best?
 - Proof size of a leaf is $r \log_r n$
@@ -182,17 +144,13 @@ If only one option for a sequence we merge them.
 </script></section><section  data-markdown><script type="text/template">
 ## Merkle Mountain Ranges
 
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
-
 - Append only data structure
 - Lookup elements by number
 </script></section><section  data-markdown><script type="text/template">
 ## Merkle Mountain Ranges
 
 <center>
-<img  style="width: 1000px" src="../../../assets/img/1-Cryptography/U-MMR-13.png"/>
+<img  style="width: 800px" src="../../../assets/img/1-Cryptography/U-MMR-13.png"/>
 </center>
 
 <aside class="notes"><p>we have several Merkle trees of sizes that are powers of two.
@@ -201,13 +159,13 @@ The trees that are here correspond to the binary digits of 13 that are 1.</p>
 ## Merkle Mountain Ranges
 
 <center>
-<img  style="width: 1000px" src="../../../assets/img/1-Cryptography/U-MMR-14.png"/>
+<img  style="width: 800px" src="../../../assets/img/1-Cryptography/U-MMR-14.png"/>
 </center>
 </script></section><section  data-markdown><script type="text/template">
 ## Merkle Mountain Ranges
 
 <center>
-<img  style="width: 1000px" src="../../../assets/img/1-Cryptography/MMR-13.png"/>
+<img  style="width: 800px" src="../../../assets/img/1-Cryptography/MMR-13.png"/>
 </center>
 
 <aside class="notes"><ul>
@@ -215,11 +173,7 @@ The trees that are here correspond to the binary digits of 13 that are 1.</p>
 <li>Can update the peak nodes alone on-chain</li>
 </ul>
 </aside></script></section><section  data-markdown><script type="text/template">
-## Succinct proving with cryptography?
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
+## Succinct Proving<br>with Cryptography?
 
 - ZK friendly hashes
 - Non-hashed based data structures

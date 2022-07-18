@@ -19,7 +19,7 @@
   </head>
   <body class="site">
     <header class="site-header">
-      <a href="/">
+      <a href="">
         <img class="watermark-logo" src="./../../../assets/img/0-Shared/logo/PBA-logo-white.svg" alt="PBA Logo">
       </a>
       <img class="watermark-icon" src="./../../../assets/img/0-Shared/logo/DOT-pink.svg" alt="DOT">
@@ -29,20 +29,8 @@
         <section  data-markdown><script type="text/template">
 
 # Digital Signatures Basics
-
-<widget-text style="padding: 0 200px 50px 200px" center >
-. . . . . . . . . .
-</widget-text>
-
-## Gavin Wood
-
-### _Founder, Parity Technologies_
-
-<!-- <widget-speaker small name="Gavin Wood" position="Founder, Parity Technologies" image="../../../assets/img/0-Shared/people/gav.png"></widget-speaker> -->
 </script></section><section  data-markdown><script type="text/template">
 ## Signature API
-
-<widget-text style="padding: 0 200px 0 200px ">
 
 Signature libraries should generally all expose some basic functions:
 
@@ -69,25 +57,15 @@ Signature libraries should generally all expose some basic functions:
 </aside></script></section><section  data-markdown><script type="text/template">
 ## Hash Functions
 
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
-
 There are two lectures dedicated to hash functions. But they are used as part of all signing processes.
 
 For now, we only concern ourselves with using Blake2.
 </script></section><section  data-markdown><script type="text/template">
 ## Hashed Messages
 
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
-
 As mentioned in the introduction, it's often more practical to sign the hash of a message.
 
 Therefore, the sign/verify API may be _used_ like:
-
-<br>
 
 <widget-text center>
 
@@ -96,11 +74,7 @@ Therefore, the sign/verify API may be _used_ like:
 
 </widget-text>
 
-<br>
-
 Where `H` is a hash function (for our purposes, Blake2). This means the verifier will need to run the correct hash function on the message.
-
-</widget-text>
 </script></section><section  data-markdown><script type="text/template">
 <!-- .slide: data-background-color="#8D3AED" -->
 
@@ -117,21 +91,11 @@ Where `H` is a hash function (for our purposes, Blake2). This means the verifier
 </aside></script></section><section  data-markdown><script type="text/template">
 ## Signing Payloads
 
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
-
 Signing payloads are an important part of system design. Users should have credible expectations about how their messages are used.
-
-<br>
 
 For example, when a user authorises a transfer, they almost always mean just one time.
 </script></section><section  data-markdown><script type="text/template">
 ## Replay Attacks
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
 
 Replay attacks occur when someone intercepts and resends a valid message. The receiver will carry out the instructions since the message contains a valid signature.
 
@@ -141,10 +105,6 @@ Replay attacks occur when someone intercepts and resends a valid message. The re
 - The "receiver", for blockchain purposes, is actually an automated system.
 </script></section><section  data-markdown><script type="text/template">
 ## Replay Attack Prevention
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
 
 Signing payloads should be designed so that they can only be used one time and in one context. Examples:
 
@@ -158,36 +118,20 @@ Signing payloads should be designed so that they can only be used one time and i
 </script></section><section  data-markdown><script type="text/template">
 ## ECDSA
 
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
-
 - Uses Secp256k1 elliptic curve.
 - ECDSA (used initially in Bitcoin/Ethereum) was developed to work around the patent on Schnorr signatures.
 - ECDSA complicates more advanced cryptographic techniques, like threshold signatures.
 </script></section><section  data-markdown><script type="text/template">
 ## Ed25519
 
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
-
 - Schnorr signature designed to reduce mistakes in implementation and usage in classical applications, like TLS certificates.
 - Signing is 20-30x faster than ECDSA signatures.
 </script></section><section  data-markdown><script type="text/template">
 ## Sr25519
 
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
-
 Sr25519 addresses several small risk factors that emerged from Ed25519 usage by blockchains.
 </script></section><section  data-markdown><script type="text/template">
 ## Use in Substrate
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
 
 - Sr25519 is the default key type in most Substrate-based applications.
 - Its public key is 32 bytes and generally used to identify key holders (likewise for ed25519).
@@ -197,45 +141,31 @@ Sr25519 addresses several small risk factors that emerged from Ed25519 usage by 
 
 Hierarchical Deterministic Key Derivation
 
-<img  src="../../../assets/img/1-Cryptography/HD-Deterministic-Wallet.png"/>
+<img style="width: 1100px;" src="../../../assets/img/1-Cryptography/HD-Deterministic-Wallet.png"/>
 </script></section><section  data-markdown><script type="text/template">
 ## Hard vs. Soft
 
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
-
 Key derivation allows one to derive (virtually limitless) child keys from one "parent".
-
-<br>
 
 Derivations can either be "hard" or "soft".
 </script></section><section  data-markdown><script type="text/template">
 ## Hard Derivation
 
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
-
 Hard derivation requires the secret key and derives new child secret keys.
-
-<br>
 
 Typical "operational security" usages should favor hard derivation over soft derivation because hard derivations avoid leaking the sibling keys, unless the original secret is compromised.
 </script></section><section  data-markdown><script type="text/template">
 ## Hard Derivation in Wallets
 
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
-
 Wallets can derive keys for use in different consensus systems while only needing to back up one secret plus a pattern for child derivation.
 
-<img  src="../../../assets/img/1-Cryptography/Hard-Derivation-in-Wallets.png"/>
+<img style="width: 1000px;" src="../../../assets/img/1-Cryptography/Hard-Derivation-in-Wallets.png"/>
 </script></section><section  data-markdown><script type="text/template">
-<widget-text style="padding: 0 200px 0 200px ">
+## Hard Derivation in Wallets
 
 Let's imagine we want to use this key on multiple networks, but we don't want the public keys to be connected to each other.
+
+<img style="width: 1000px;" src="../../../assets/img/1-Cryptography/Hard-Derivation-in-Wallets.png"/>
 </script></section><section  data-markdown><script type="text/template">
 <!-- .slide: data-background-color="#8D3AED" -->
 
@@ -248,29 +178,24 @@ Let's imagine we want to use this key on multiple networks, but we don't want th
 </aside></script></section><section  data-markdown><script type="text/template">
 ## Soft Derivation
 
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
-
 Soft derivation allows one to create derived addresses from only the public key. Contrary to hard derivation, all addresses have related or effectively the same private key.
 
 <aside class="notes"><p>Soft derivations can break some niche advanced protocols, but our sr25519 crate avoids supporting protocols that conflict with soft derivations.</p>
 </aside></script></section><section  data-markdown><script type="text/template">
 ## Soft Derivation in Wallets
 
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
-
 Wallets can use soft derivation to link all payments controlled by a single private key, without the need to expose the private key for the address derivation.
-
-<br>
-</script></section><section  data-markdown><script type="text/template">
-<widget-text>
 
 **Use case:** _A business wants to generate a new address for each payment, but should be able to automatically give customers an address without the secret key owner deriving a new child._
 
 <aside class="notes"><p>See: <a href="https://wiki.polkadot.network/docs/learn-accounts#soft-vs-hard-derivation">https://wiki.polkadot.network/docs/learn-accounts#soft-vs-hard-derivation</a></p>
+</aside></script></section><section  data-markdown><script type="text/template">
+## Soft Derivation
+
+- Note that these generate new addresses, but use the same secret seed.
+- We can also use the same paths, but only using the Account ID from `//polkadot`. It generates the same addresses!
+
+<aside class="notes"><p>Let&#39;s go back to Rust to soft derive more children.</p>
 </aside></script></section><section  data-markdown><script type="text/template">
 <!-- .slide: data-background-color="#8D3AED" -->
 
@@ -278,51 +203,24 @@ Wallets can use soft derivation to link all payments controlled by a single priv
 
 ## Soft Derivation
 
-Notes:
-
-See the Jupyter notebook and/or HackMD cheat sheet for this lecture.
-
-Let's go back to Rust to soft derive more children.
-
-<br>
-
-<widget-text center>
-
-<widget-text style="padding: 0 200px 0 200px ">
-
-- Note that these generate new addresses, but use the same secret seed.
-
-- We can also use the same paths, but only using the Account ID from `//polkadot`. It generates the same addresses!
-
-Notes:
-
-See the Jupyter notebook for this lecture.
-</script></section><section  data-markdown><script type="text/template">
+<aside class="notes"><p>See the Jupyter notebook and/or HackMD cheat sheet for this lecture.</p>
+</aside></script></section><section  data-markdown><script type="text/template">
 # Mnemonics and Seed Creation
 </script></section><section  data-markdown><script type="text/template">
 ## Mnemonics
 
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
-
 Many wallets use a dictionary of words and give people phrases, often 12 or 24 words, as these are easier to back up/recover than byte arrays.
-
-<br>
 
 Some people create their own phrases. This is usually stupid.
 </script></section><section  data-markdown><script type="text/template">
 ## Dictionaries
 
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
-
 <widget-columns>
 <widget-column>
-There are some standard dictionaries to define which words (and character sets) are included in the generation of a phrase. Substrate uses the dictionary from BIP39.
-</widget-column>
 
+There are some standard dictionaries to define which words (and character sets) are included in the generation of a phrase. Substrate uses the dictionary from BIP39.
+
+</widget-column>
 <widget-column>
 
 | No. | word    |
@@ -333,7 +231,7 @@ There are some standard dictionaries to define which words (and character sets) 
 | 4   | about   |
 | 5   | above   |
 
-<widget-text style="font-size: .8em;">
+<widget-text style="font-size: .6em;" center>
 
 _The first 5 words of the [BIP39 English dictionary](https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt)_
 
@@ -342,29 +240,17 @@ _The first 5 words of the [BIP39 English dictionary](https://github.com/bitcoin/
 </script></section><section  data-markdown><script type="text/template">
 ## Mnemonic to Secret Key
 
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
-
 Of course, the secret key is a point on an elliptic curve, not a phrase.
 
 BIP39 applies 2,048 rounds of the SHA-512 hash function to the mnemonic to derive a 64 byte key.
-
-<br>
 
 Substrate uses the entropy byte array from the mnemonic.
 </script></section><section  data-markdown><script type="text/template">
 ## Portability
 
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
-
 Different key derivation functions affect the ability to use the same mnemonic in multiple wallets.
 </script></section><section  data-markdown><script type="text/template">
 ## Next Lesson
-
-<br>
 
 <widget-text center>
 

@@ -19,7 +19,7 @@
   </head>
   <body class="site">
     <header class="site-header">
-      <a href="/">
+      <a href="">
         <img class="watermark-logo" src="./../../../assets/img/0-Shared/logo/PBA-logo-white.svg" alt="PBA Logo">
       </a>
       <img class="watermark-icon" src="./../../../assets/img/0-Shared/logo/DOT-pink.svg" alt="DOT">
@@ -29,20 +29,8 @@
         <section  data-markdown><script type="text/template">
 
 # Advanced Digital Signatures
-
-<widget-text style="padding: 0 200px 50px 200px" center >
-. . . . . . . . . .
-</widget-text>
-
-## Alistair Stewart
-
-### _Cryptographer, Web3 Foundation_
 </script></section><section  data-markdown><script type="text/template">
 ### Certificates
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
 
 A certificate is one issuing key signing a message containing another certified key, which attests to some properties or relationship about the certified key.
 
@@ -50,21 +38,11 @@ A certificate is one issuing key signing a message containing another certified 
 </aside></script></section><section  data-markdown><script type="text/template">
 ### Certificates
 
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
-
 Issuing keys do not necessarily have unilateral certification capabilities, although some do.
-
-<br>
 
 For example, the certificate transparency protocol for TLS certificates helps protect against compromised Certificate Authorities.
 </script></section><section  data-markdown><script type="text/template">
 ### Certificates in Web3
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
 
 We are building systems that don't have a "Certificate Authority".
 But we can still use certificates in some niche instances.
@@ -82,20 +60,12 @@ An account, whose keys are protected, can sign a transaction to certify all the 
 </script></section><section  data-markdown><script type="text/template">
 ### Multi-Signatures
 
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
-
 We often want signatures that must be signed by multiple parties to become valid.
 
 - Require some threshold of members to agree to a message
 - Protect against key loss
 </script></section><section  data-markdown><script type="text/template">
 ### Types of Multi-Signature
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
 
 <widget-text center>
 
@@ -105,10 +75,6 @@ We often want signatures that must be signed by multiple parties to become valid
 </script></section><section  data-markdown><script type="text/template">
 ### Verifier Enforced Multiple Signatures
 
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
-
 We assume that there is some verifier, who can check that some threshold of individual keys have provided valid signatures.
 
 This could be a trusted company or third party.
@@ -116,19 +82,11 @@ For our purposes, _it's a blockchain_.
 </script></section><section  data-markdown><script type="text/template">
 ### Verifier Enforced Multiple Signatures
 
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
-
 Multiple signatures enforced by a verifier generally provide a good user experience, as no interaction is required from the participants.
 
 <aside class="notes"><p>This good experience comes at the cost of using state and more user interactions with the system, but is generally low.</p>
 </aside></script></section><section  data-markdown><script type="text/template">
 ### Cryptographic Threshold Multi-Sigs
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
 
 Cryptographic multi-signatures can be achieved purely on the signer side (without support from the verifier).
 This makes more compact signatures compatible with legacy systems.
@@ -141,10 +99,6 @@ _Example: "5 of 7 key holders have signed this message."_
 </aside></script></section><section  data-markdown><script type="text/template">
 ### Cryptographic Non-Threshold Multi-Sigs
 
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
-
 Sometimes we do not need a threshold represented in a public key.
 But we want a succinct way to demonstrate that multiple parties have signed a message.
 
@@ -154,11 +108,7 @@ _Example: "5 key holders have signed this message."_
 </script></section><section  data-markdown><script type="text/template">
 ### Key Generation - Threshold
 
-<widget-text style="padding: 0 200px 0 200px ">
-
 Threshold multi-signature schemes require that all signers run a _distributed key generation_ (DKG) protocol that constructs key _shares_.
-
-<br>
 
 The secret encodes the threshold behavior, and signing demands some threshold of signature _fragments_.
 
@@ -166,17 +116,11 @@ This DKG protocol breaks other useful things, like hard key derivation.
 </script></section><section  data-markdown><script type="text/template">
 ### Key Generation - Non-Threshold
 
-<widget-text style="padding: 0 200px 0 200px ">
-
 In non-threshold multi-signatures, signatures from individual public keys are aggregated.
 
 Each participant can choose their own key to use for the multi-signature.
 </script></section><section  data-markdown><script type="text/template">
 ### Schnorr Multi-Sigs
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
 
 Schnorr signatures are primarily used for threshold multi-sig.
 
@@ -186,21 +130,11 @@ Schnorr signatures are primarily used for threshold multi-sig.
 </script></section><section  data-markdown><script type="text/template">
 ### Schnorr Multi-Sigs
 
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
-
 However, automation becomes tricky.
-
-<br>
 
 We need agreement upon the final signer list and two random nonce contributions from each prospective signer, before constructing the signature fragments.
 </script></section><section  data-markdown><script type="text/template">
 ### BLS Signatures
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
 
 BLS signatures are especially useful for aggregated (non-threshold) multi-signatures (but can be used for threshold as well).
 
@@ -212,10 +146,6 @@ Verifying individual signatures is _slow_, but verifying aggregated ones is rela
 </script></section><section  data-markdown><script type="text/template">
 ### BLS Signatures
 
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
-
 Allows multiple signatures generated under multiple public keys for multiple messages to be aggregated into a single signature.
 
 <widget-text center>
@@ -224,10 +154,6 @@ Allows multiple signatures generated under multiple public keys for multiple mes
 - Very popular for consensus.
 </script></section><section  data-markdown><script type="text/template">
 ### BLS Signatures
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
 
 However...
 
@@ -238,10 +164,6 @@ However...
 </script></section><section  data-markdown><script type="text/template">
 ### Schnorr and BLS Summary
 
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
-
 Schnorr & BLS multi-signatures avoid complicating verifier logic, but introduce user experience costs such as:
 
 - DKG protocols
@@ -249,10 +171,6 @@ Schnorr & BLS multi-signatures avoid complicating verifier logic, but introduce 
 - Verification speed
 </script></section><section  data-markdown><script type="text/template">
 ### Ring Signatures
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
 
 - Ring signatures prove the signer lies within some "anonymity set" of signing keys, but hide which key actually signed.
 - Ring signatures come in many sizes, with many ways of presenting their anonymity sets.
@@ -264,10 +182,6 @@ Schnorr & BLS multi-signatures avoid complicating verifier logic, but introduce 
 </ul>
 </aside></script></section><section  data-markdown><script type="text/template">
 ### Next Lesson
-
-<br>
-
-<widget-text style="padding: 0 200px 0 200px ">
 
 - Exotic Primitives
 - Hash functions and data structures

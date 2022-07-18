@@ -19,7 +19,7 @@
   </head>
   <body class="site">
     <header class="site-header">
-      <a href="/">
+      <a href="">
         <img class="watermark-logo" src="./../../../assets/img/0-Shared/logo/PBA-logo-white.svg" alt="PBA Logo">
       </a>
       <img class="watermark-icon" src="./../../../assets/img/0-Shared/logo/DOT-pink.svg" alt="DOT">
@@ -29,32 +29,16 @@
         <section  data-markdown><script type="text/template">
 
 # Exotic Primitives
-
-<widget-text style="padding: 0 200px 50px 200px" center >
-. . . . . . . . . .
-</widget-text>
-
-## Alistair Stewart
-
-### _Cryptographer, Web3 Foundation_
 </script></section><section  data-markdown><script type="text/template">
 # Outline
 
-<br>
-
-<widget-text style="padding: 0 200px 50px 200px" center >
-
-- VRFs
-- Erasure coding
-- ZK Proofs
+1. [Verifiable Random Functions (VRFs)](#verifiable-random-functions-vrfs)
+1. [Erasure coding](#erasure-coding)
+1. [ZK Proofs](#zk-proofs)
 </script></section><section  data-markdown><script type="text/template">
-## Verifiable Random Functions (VRFs)
+# Verifiable Random Functions<br>(VRFs)
 </script></section><section  data-markdown><script type="text/template">
-### Verifiable Random Functions (VRFs)
-
-<br>
-
-<widget-text style="padding: 0 200px 50px 200px" center >
+## Verifiable Random Functions<br>(VRFs)
 
 <widget-center>
 
@@ -64,11 +48,7 @@
   - still have private/public key pairs, input as message
   - in addition to signature, we get an output
 </script></section><section  data-markdown><script type="text/template">
-### VRF Interface
-
-<br>
-
-<widget-text style="padding: 0 200px 50px 200px" center >
+## VRF Interface
 
 - `sign(sk, input) -> signature`
 
@@ -76,22 +56,14 @@
 
 - `eval(sk,input) -> output`
 </script></section><section  data-markdown><script type="text/template">
-### VRF Output properties
-
-<br>
-
-<widget-text style="padding: 0 200px 50px 200px" center >
+## VRF Output properties
 
 - Output is a deterministic function of _key_ and _input_
   - i.e. eval should be deterministic
 - It should be pseudo-random
 - But until the VRF is revealed, only the holder of the secret key knows the output
 </script></section><section  data-markdown><script type="text/template">
-### VRF Usage
-
-<br>
-
-<widget-text style="padding: 0 200px 50px 200px" center >
+## VRF Usage
 
 - Choose input after key, then the key holder cannot influence the output
 - The output then is effectively a random number known only to the key holder
@@ -99,11 +71,7 @@
 
 <aside class="notes"><p>The signature proves that this is the output associated to their input and public key.</p>
 </aside></script></section><section  data-markdown><script type="text/template">
-### Example
-
-<br>
-
-<widget-text style="padding: 0 200px 50px 200px" center >
+## VRF Example
 
 - Playing a card game in a distributed and trustless way
 - For player A to draw a card, the players agree on a new random number x
@@ -111,11 +79,7 @@
   `eval(sk_A,x) mod 52`
 - To play the card, A publishes the signature
 </script></section><section  data-markdown><script type="text/template">
-### Extensions
-
-<br>
-
-<widget-text style="padding: 0 200px 50px 200px" center >
+## VRF Extensions
 
 - Threshold VRFs / Common coin
 
@@ -128,33 +92,21 @@
 Dfinity based their consensus on this.
 But this needs a DKG, and it&#39;s unclear if a decentralized protocol can do those easily.</p>
 </aside></script></section><section  data-markdown><script type="text/template">
-## Erasure coding
+# Erasure Coding
 </script></section><section  data-markdown><script type="text/template">
-### Erasure coding
-
-<br>
-
-<widget-text style="padding: 0 200px 50px 200px" center >
+## Erasure Coding
 
 - Turn data into pieces (with some redundancy) so it can be reconstructed even if some pieces are missing.
 
 - A message of $k$ symbols is turned into a coded message of $n$ symbols and can be recovered from any $k$ of these $n$ symbols
 </script></section><section  data-markdown><script type="text/template">
-### Classical use
-
-<br>
-
-<widget-text style="padding: 0 200px 50px 200px" center >
+## Erasure Coding Classical use
 
 - Used for noisy channels
 - If a few bits of the coded data are randomly flipped, we can still recover the original data
 - Typically $n$ is not much bigger than $k$
 </script></section><section  data-markdown><script type="text/template">
-### Use in decentralized systems
-
-<br>
-
-<widget-text style="padding: 0 200px 50px 200px" center >
+## Use in Decentralized Systems
 
 - We have data we want to keep publicly available
 
@@ -163,31 +115,21 @@ But this needs a DKG, and it&#39;s unclear if a decentralized protocol can do th
 
 - Typically we use $n$ much bigger than $k$
 </script></section><section  data-markdown><script type="text/template">
-## ZK proofs
-
-<br>
-
-<widget-text style="padding: 0 200px 50px 200px" center >
+# ZK Proofs
+</script></section><section  data-markdown><script type="text/template">
+## ZK Proofs
 
 How do we do private operations on a public blockchain and have everyone know that they were done correctly?
 
 <aside class="notes"><p>(we are working on substrate support for these and will use them for protocols)</p>
 </aside></script></section><section  data-markdown><script type="text/template">
-### What is a ZK Proof?
-
-<br>
-
-<widget-text style="padding: 0 200px 50px 200px" center >
+## What is a ZK Proof?
 
 - A prover wants to convince a verifier that something is true without revealing why it is true.
 
 - They can be interactive protocols, but mostly we'll be dealing with the non-interactive variety.
 </script></section><section  data-markdown><script type="text/template">
-### What can we show?
-
-<br>
-
-<widget-text style="padding: 0 200px 50px 200px" center >
+## What can we show?
 
 - NP relation: `function(statement, witness) -> bool`
 
@@ -197,11 +139,7 @@ How do we do private operations on a public blockchain and have everyone know th
 
   - ... without revealing anything about the witness (_ZK_)
 </script></section><section  data-markdown><script type="text/template">
-### Interface
-
-<br>
-
-<widget-text style="padding: 0 200px 50px 200px" center >
+## ZK Proof Interface
 
 - NP relation: `function(statement, witness) -> bool`
 
@@ -209,26 +147,16 @@ How do we do private operations on a public blockchain and have everyone know th
 
 * `verify(statement, proof) -> bool`
 </script></section><section  data-markdown><script type="text/template">
-<widget-text style="padding: 0 200px 50px 200px" center >
-
 _Example:_ Schnorr signatures are ZK Proofs
-
-<br>
 
 - They show that the prover knows the private key (the discrete log of the public key) without revealing anything about it.
 - The statement is the public key and the witness the private key.
 </script></section><section  data-markdown><script type="text/template">
-<widget-text style="padding: 0 200px 50px 200px" center >
-
 - **Proof of knowledge** - if you can compute correct proofs of a statement, you should be able to compute a witness for it.
 
 - **Zero knowledge** - the proof reveals nothing about the witness that was not revealed by the statement itself.
 </script></section><section  data-markdown><script type="text/template">
-### What can we show?
-
-<br>
-
-<widget-text style="padding: 0 200px 50px 200px" center >
+## What can we show?
 
 - NP relation: `function(statement, witness) -> bool`
 
@@ -238,34 +166,20 @@ _Example:_ Schnorr signatures are ZK Proofs
 
 - with a small proof even if the witness is large (_succinctness_)
 </script></section><section  data-markdown><script type="text/template">
-<widget-text style="padding: 0 200px 50px 200px" center >
-
 - There are many schemes to produce succinct ZK proofs of knowledge (_ZK-SNARKs_) for every NP relation.
 </script></section><section  data-markdown><script type="text/template">
-### Scaling
-
-<br>
-
-<widget-text style="padding: 0 200px 50px 200px" center >
+## ZK Proof Scaling
 
 A small amount of data, a ZK proof, and execution time can be used to show properties of a much larger dataset which the verifier doesn't need to know.
 </script></section><section  data-markdown><script type="text/template">
-### Scaling via ZK proofs in blockchain
-
-<br>
-
-<widget-text style="padding: 0 200px 50px 200px" center >
+## Scaling via ZK Proofs in Blockchain
 
 - Large amount of data - a blockchain
 - Verifier is e.g. an app on a mobile phone
 
 <aside class="notes"><p>e.g. Mina do a blockchain with a constant size proof (of correctness of execution and consensus) using recursive SNARKs.</p>
 </aside></script></section><section  data-markdown><script type="text/template">
-### Scaling via ZK proofs in blockchain 2
-
-<br>
-
-<widget-text style="padding: 0 200px 50px 200px" center >
+## Scaling via ZK Proofs in Blockchain
 
 - The verifier is a blockchain, with very expensive data and computation costs
 
@@ -274,15 +188,9 @@ A small amount of data, a ZK proof, and execution time can be used to show prope
 <aside class="notes"><p>Of which Ethereum has many, ZKsync, ZKEVM etc.
 Polkadot already scales better!</p>
 </aside></script></section><section  data-markdown><script type="text/template">
-### Privacy
-
-<br>
-
-<widget-text style="padding: 0 200px 50px 200px" center >
+## Privacy
 
 A user has private data, but we can show publicly that this private data is correctly used.
-
-<br>
 
 Example: private cryptocurrency
 
@@ -293,11 +201,7 @@ Example: private cryptocurrency
 <aside class="notes"><p>You can do some of keeping amounts secret without ZK-SNARKs, but the positive part is difficult.
 To do everything well, ZK-SNARKs are needed in e.g. ZCash and its many derivatives e.g. Manta.</p>
 </aside></script></section><section  data-markdown><script type="text/template">
-### Practical considerations
-
-<br>
-
-<widget-text style="padding: 0 200px 50px 200px" center >
+## Practical Considerations
 
 - Very powerful primitive
 
@@ -305,30 +209,18 @@ To do everything well, ZK-SNARKs are needed in e.g. ZCash and its many derivativ
 
 - One can design many protocols with ZK Proofs that wouldn't otherwise be possible
 </script></section><section  data-markdown><script type="text/template">
-### Downside
-
-<br>
-
-<widget-text style="padding: 0 200px 50px 200px" center >
+## Downside
 
 - Slow prover time for general computation
 - To be fast, need to hand optimize
 - Very weird computation model: Non-deterministic arithmetic circuits
 </script></section><section  data-markdown><script type="text/template">
-### Downsides conclusion?
-
-<br>
-
-<widget-text style="padding: 0 200px 50px 200px" center >
+## Downsides Conclusion?
 
 - So if you want to use this for a component, expect a team of skilled people to work for at least a year on it...
 - But if you are watching this 5 years later, people have built tools to make it less painful.
 </script></section><section  data-markdown><script type="text/template">
 ## Summary
-
-<br>
-
-<widget-text style="padding: 0 200px 50px 200px" center >
 
 - VRF: Private randomness that is later publicly verifiable
 - Erasure Coding: Making data robust against losses with redundancy

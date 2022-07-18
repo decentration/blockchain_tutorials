@@ -19,7 +19,7 @@
   </head>
   <body class="site">
     <header class="site-header">
-      <a href="/">
+      <a href="">
         <img class="watermark-logo" src="./../../../assets/img/0-Shared/logo/PBA-logo-white.svg" alt="PBA Logo">
       </a>
       <img class="watermark-icon" src="./../../../assets/img/0-Shared/logo/DOT-pink.svg" alt="DOT">
@@ -152,8 +152,6 @@ Allow users to interact with a common system without trusting any intermediaries
 
 Opens the door to new application stacks:
 
-<br>
-
 - Shared state and state change rules
 - Custom rendering, moderation, interfaces
 </script></section><section  data-markdown><script type="text/template">
@@ -189,8 +187,6 @@ Blockchains are adversarial, with no admins.
 
 How does the state advance?
 
-<br>
-
 Which changes are final?
 
 </center>
@@ -201,8 +197,6 @@ Which changes are final?
 **State Transition Function**
 
 What does the state hold?
-
-<br>
 
 What are the _rules_ to change it?
 
@@ -290,8 +284,6 @@ The parent hash links blocks together (cryptographically linked list). The other
 
 </center>
 
-<br>
-
 - Version
 - Previous Hash
 - Tx Merkle Root
@@ -307,8 +299,6 @@ The parent hash links blocks together (cryptographically linked list). The other
 **Ethereum**
 
 </center>
-
-<br>
 
 - Time
 - Block NUmber
@@ -336,8 +326,6 @@ Whole next lecture is dedicated to consensus, going to stay strictly conceptual 
 </script></section><section  data-markdown><script type="text/template">
 ## Liveness
 
-<br>
-
 - Property that ensures state transitions will happen.
   The system should be _available_.
 - Someone needs to propose a state transition (within a block) and a resultant state.
@@ -346,8 +334,6 @@ Whole next lecture is dedicated to consensus, going to stay strictly conceptual 
 <aside class="notes"><p>Class Discussion: What are some motivations?</p>
 </aside></script></section><section  data-markdown><script type="text/template">
 ## Liveness Examples
-
-<br>
 
 - Static leader
 - Round robin
@@ -362,8 +348,6 @@ Once a state transition occurs, under what conditions can users have a credible 
 - Deterministic
 </script></section><section  data-markdown><script type="text/template">
 ## Safety Examples
-
-<br>
 
 - Longest chain
 - Most difficulty
@@ -404,8 +388,6 @@ In blockchains, this is usually accomplished via either lack of reward or explic
 
 **The _system_ should uphold its credibility even if individual participants do not.**
 
-<br>
-
 | Technical Design               | Economic Design    |
 | ------------------------------ | ------------------ |
 | Key choices                    | Cost of misuse     |
@@ -436,8 +418,6 @@ Uses an unspent transaction output (UTXO) model & Proof of Work (PoW) consensus.
 <aside class="notes"><p>Source: <a href="https://bitcoin.org/en/bitcoin-paper">Bitcoin white paper</a></p>
 </aside></script></section><section  data-markdown><script type="text/template">
 ## Ethereum
-
-<br>
 
 - Generalisation of Bitcoin: provides a quasi-Turing-complete VM
 - Uses an account-based system
@@ -471,8 +451,6 @@ In Substrate chains (like Polkadot), it's part of the state itself!
 `:CODE => <some-wasm-executable>`
 </script></section><section  data-markdown><script type="text/template">
 ## Many State Machines
-
-<br>
 
 - If one state machine with such guarantees is useful, people will probably want more.
 - But security can be diluted.
