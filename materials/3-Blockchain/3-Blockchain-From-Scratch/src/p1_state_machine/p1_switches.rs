@@ -102,8 +102,8 @@ fn sm_1_two_switches_second_goes_on() {
 fn sm_1_two_switches_second_goes_off() {
     let state = TwoSwitches { first_switch: true, second_switch: true };
 
-    assert_eq!(TwoSwitches::next_state(&state, &Toggle::FirstSwitch), TwoSwitches {
-        first_switch: false,
+    assert_eq!(TwoSwitches::next_state(&state, &Toggle::SecondSwitch), TwoSwitches {
+        first_switch: true,
         second_switch: false,
     });
 }
