@@ -2,6 +2,8 @@
 //! We leared from the lecture that it is actually the headers that are hash linked, so let's
 //! start with that.
 //! 
+//! 
+//! // let block hash = hash(&block)
 
 use crate::hash;
 
@@ -25,18 +27,59 @@ pub struct Header {
 impl Header {
     /// Returns a new valid genesis header.
     fn genesis() -> Self {
-        todo!("Exercise 1")
+       // todo!("Exercise 1")
+            
+       let ourheight = 0;
+       let ourhash = 0;
+       // println!("{}", ourhash);
+       Self{height: ourheight, parent: ourhash, extrinsics_root: (), state_root: (), consensus_digest: ()}
     }
 
     /// Create and return a valid child header.
     fn child(&self) -> Self {
-        todo!("Exercise 2")
+        //todo!("Exercise 2")
+        let newheight = &self.height + 1;
+        let parenthash = hash(&self);
+        Self { height: newheight, parent: parenthash, extrinsics_root: (), state_root: (), consensus_digest: () }
+        
+    
     }
 
     /// Verify that all the given headers form a valid chain from this header to the tip.
     /// An "entire" chain can be verified by calling this method on a genesis header.
     fn verify_sub_chain(&self, chain: &[Header]) -> bool {
-        todo!("Exercise 3")
+       // todo!("Exercise 3")
+
+
+
+       let iter = chain.into_iter();
+       let get_header = Header::genesis();
+
+       let mut valid = true;
+       let mut hashparent = hash(&get_header);
+       let parentheight = get_header.height;
+       
+       for block in iter {
+           println!("{}", hashparent);
+           println!("{}", block.parent);
+           println!("{}", block.height);
+   
+           if (block.height - parentheight) != 1 {
+               valid = false;
+           }
+   
+           if hashparent != block.parent {
+               valid = false;
+           }
+           if hashparent == block.parent {
+               let currenthash = hash(&block);
+               hashparent = currenthash;
+           } else {
+               valid = false;
+           }
+   
+       }
+       valid
     }
 }
 
@@ -44,7 +87,18 @@ impl Header {
 
 /// Build and return a valid chain with exactly five blocks including the genesis block.
 fn build_valid_chain_length_5() -> Vec<Header> {
-    todo!("Exercise 4")
+   // todo!("Exercise 4")
+
+   // iterate through from gensis and 4 more blocks then produce a header
+   // geneis() then child(&self)
+   
+   let g = Header::genesis();
+   let b1 = g.child();
+   let b2 = b1.child();
+   let b3 = b2.child(); 
+   let b4 = b3.child();
+
+    vec![g, b1, b2, b3, b4]
 }
 
 
@@ -52,7 +106,16 @@ fn build_valid_chain_length_5() -> Vec<Header> {
 /// The chain should start with a proper genesis header,
 /// but the entire chain should NOT be valid.
 fn build_an_invalid_chain() -> Vec<Header> {
-    todo!("Exercise 5")
+    // todo!("Exercise 5")
+    let g = Header::genesis();
+    let mut b1 = g.child();
+    b1.parent = 10;
+    b1.height = 10;
+    let b2 = g.child();
+    let b3 = b2.child();
+    let b4 = b3.child();
+
+    vec![g, b2, b3, b4, b1]
 }
 
 

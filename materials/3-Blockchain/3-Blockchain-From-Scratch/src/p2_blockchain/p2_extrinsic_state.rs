@@ -26,17 +26,32 @@ pub struct Header {
     consensus_digest: (),
 }
 
-// Here are the methods for creating new hedaer and verifying headers.
+// Here are the methods for creating new header and verifying headers.
 // It is your job to write them.
 impl Header {
     /// Returns a new valid genesis header.
     fn genesis() -> Self {
-        todo!("Exercise 1")
+       // todo!("Exercise 1")
+       let gen_height = 0;
+       let gen_hash = 0;
+       let gen_extr = 123;
+       let gen_state = 0;
+       // println!("{}", ourhash);
+       Self{height: gen_height, parent: gen_hash, extrinsic: gen_extr, state: gen_state, consensus_digest: ()}
+    
     }
 
     /// Create and return a valid child header.
     fn child(&self, extrinsic: u64) -> Self {
-        todo!("Exercise 2")
+       // todo!("Exercise 2")
+
+       let newheight = &self.height + 1;
+       
+       let gen_hash = hash(&self);
+       let new_child_extrinsic = 112;
+       let new_state = 987;
+       Self{height: newheight, parent: gen_hash, extrinsic: new_child_extrinsic, state: new_state, consensus_digest: ()}
+   
     }
 
     /// Verify that all the given headers form a valid chain from this header to the tip.
