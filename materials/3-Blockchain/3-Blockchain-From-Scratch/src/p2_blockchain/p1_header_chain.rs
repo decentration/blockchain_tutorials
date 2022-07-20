@@ -92,13 +92,16 @@ fn build_valid_chain_length_5() -> Vec<Header> {
    // iterate through from gensis and 4 more blocks then produce a header
    // geneis() then child(&self)
    
-   let g = Header::genesis();
-   let b1 = g.child();
-   let b2 = b1.child();
-   let b3 = b2.child(); 
-   let b4 = b3.child();
+   let mut valid_chain = Vec::<Header>::new();
+   let mut this_block = Header::genesis();
 
-    vec![g, b1, b2, b3, b4]
+   valid_chain.push(this_block.clone());
+
+   for i in 0..4 {
+       this_block = this_block.child();
+       valid_chain.push(this_block.clone())
+   }
+   valid_chain
 }
 
 
@@ -107,15 +110,11 @@ fn build_valid_chain_length_5() -> Vec<Header> {
 /// but the entire chain should NOT be valid.
 fn build_an_invalid_chain() -> Vec<Header> {
     // todo!("Exercise 5")
-    let g = Header::genesis();
-    let mut b1 = g.child();
+    let mut invalid_chain = build_valid_chain_length_5();
+    let mut b1 = Header::genesis();
     b1.parent = 10;
-    b1.height = 10;
-    let b2 = g.child();
-    let b3 = b2.child();
-    let b4 = b3.child();
-
-    vec![g, b2, b3, b4, b1]
+    invalid_chain.push(b1);
+    invalid_chain
 }
 
 
