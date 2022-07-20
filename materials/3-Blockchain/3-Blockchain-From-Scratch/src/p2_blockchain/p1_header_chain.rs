@@ -50,37 +50,23 @@ impl Header {
     fn verify_sub_chain(&self, chain: &[Header]) -> bool {
        // todo!("Exercise 3")
 
-
-
-       let iter = chain.into_iter();
-       let get_header = Header::genesis();
-
-       let mut valid = true;
-       let mut hashparent = hash(&get_header);
-       let parentheight = get_header.height;
-       
-       for block in iter {
-           println!("{}", hashparent);
-           println!("{}", block.parent);
-           println!("{}", block.height);
-   
-           if (block.height - parentheight) != 1 {
-               valid = false;
-           }
-   
-           if hashparent != block.parent {
-               valid = false;
-           }
-           if hashparent == block.parent {
-               let currenthash = hash(&block);
-               hashparent = currenthash;
-           } else {
-               valid = false;
-           }
-   
-       }
-       valid
+       if self.height == 0 && chain.is_empty() {
+        return true;
     }
+
+    let verifying_chain = chain.to_vec();
+    let mut parent = self.clone();
+    for block in chain {
+        if hash(&parent) != block.parent {
+            return false;
+        }
+        if parent.height != block.height - 1 {
+            return false;
+        }
+        parent = block.clone();
+    }
+    true
+}
 }
 
 // And finally a few functions to use the code we just
